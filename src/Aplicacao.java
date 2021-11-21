@@ -42,7 +42,7 @@ public class Aplicacao {
     }
 
     public static void login1 () {
-        Scanner sn          = new Scanner(System.in);
+        Scanner sn = new Scanner(System.in);
         boolean verificacao;
 
         do {
@@ -58,8 +58,31 @@ public class Aplicacao {
 
     }
 
+    static void menu () {
+        System.out.println("Introduza: 0 - para fazer logout\n" +
+                           "Introduza: 1 - para efetuar uma compra\n" +
+                           "Introduza: 2 - para ver o seu histórico de compras\n");
+    }
+
     public static void main(String[] args){
         adicionaClientes();
         login1();
+
+        int option;
+        Scanner sn = new Scanner(System.in);
+
+        do {
+            menu();
+            option = sn.nextInt();
+
+            switch (option) {
+                case 1:
+                    // TODO efetuar compras
+                    break;
+                case 2:
+                    // TODO listar historico de compras
+                    break;
+            }
+        } while (option != 0);
     }
 }
