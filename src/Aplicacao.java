@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -9,6 +11,33 @@ public class Aplicacao {
         clientes.add(new Cliente("Francisco", "Coimbra", "fmacedo@student.uc.pt", 969715348, new Data(2002,3, 10)));
         clientes.add(new Cliente("Manuel", "Lisboa", "manuel.mail@gmail.com", 915473877, new Data(1992, 5, 16)));
         clientes.add(new Cliente("Joana", "Porto", "joana.mail@hotmail.com", 924106841, new Data(1989, 10, 3)));
+    }
+
+    static void leituraClientes () {
+        try {
+            FileReader file   = new FileReader("Clientes.txt");
+            BufferedReader bf = new BufferedReader(file);
+            String line;
+
+            while (true) {
+                line              = bf.readLine();
+
+                if (line != null) {
+                    String[] dados    = line.split(",");
+
+                    // criar a data
+                    String[] data =  dados[4].split("/");  // dei split da string original do ficheiro
+                    Data d        = new Data(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]));  // criei o objeto data e converti as strings em inteiros
+
+                    clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d));
+                } else {
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erro" + e.getMessage());
+        }
     }
 
     public static void login(){
@@ -64,8 +93,11 @@ public class Aplicacao {
                            "Introduza: 2 - para ver o seu histórico de compras\n");
     }
 
+
+    // TODO ___________________________________MAIN_______________________________________________
     public static void main(String[] args){
         adicionaClientes();
+        leituraClientes();
         login1();
 
         int option;
@@ -84,5 +116,9 @@ public class Aplicacao {
                     break;
             }
         } while (option != 0);
+
+        for (Cliente c : clientes)
+            System.out.println(c);
+
     }
 }
