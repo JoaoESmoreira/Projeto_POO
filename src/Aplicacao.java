@@ -1,4 +1,3 @@
-import java.nio.file.attribute.AclEntry;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -44,13 +43,16 @@ public class Aplicacao {
 
     public static void login1 () {
         Scanner sn          = new Scanner(System.in);
-        boolean verificacao = false;
+        boolean verificacao;
 
         do {
             System.out.print("Introduza o endereco de email: ");
             String email = sn.nextLine();
 
             verificacao  = verificaLogin(email);
+
+            if (!verificacao)
+                System.out.println("Email nao verificado!");
 
         } while (!verificacao);
 
