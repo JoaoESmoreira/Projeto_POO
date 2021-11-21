@@ -1,5 +1,5 @@
 public class Produto {
-    protected int id, stock;
+    protected int id, stock, preco;
     protected String nome;
 
     public Produto(){}
@@ -26,6 +26,14 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setPreco (int preco) {
+        this.preco = preco;
+    }
+
+    public int getPreco () {
+        return preco;
     }
 
     @Override
