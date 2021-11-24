@@ -13,6 +13,7 @@ public class Vendas {
     }
     public void addProdutoNaListaCompras (Produto produto) {
         this.listaCompras.add(produto);
+        setCusto(); // TODO será que isto é correto?
     }
 
     public Cliente getCliente() {
@@ -27,7 +28,13 @@ public class Vendas {
         return custo;
     }
 
-    public void setCusto(int custo) {
+    public void setCusto() {
+        int custo = 0;
+        for (Produto produto : listaCompras) {
+            custo += produto.preco;
+        }
+
+        // TODO falta adicionar o desconto final
         this.custo = custo;
     }
 
