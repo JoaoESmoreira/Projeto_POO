@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Aplicacao {
@@ -20,15 +19,16 @@ public class Aplicacao {
             String line;
 
             while (true) {
-                line              = bf.readLine();
+                line = bf.readLine();
 
                 if (line != null) {
-                    String[] dados    = line.split(",");
+                    String[] dados = line.split(",");
 
                     // criar a data
                     String[] data =  dados[4].split("/");  // dei split da string original do ficheiro
                     Data d        = new Data(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]));  // criei o objeto data e converti as strings em inteiros
 
+                    // adicionar o cliente à arraylist
                     clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d));
                 } else {
                     break;
@@ -40,22 +40,8 @@ public class Aplicacao {
         }
     }
 
-    public static void login(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduza o endereco de email: ");
-        String email = scanner.nextLine();
-
-        for(Cliente c: clientes){
-            if(Objects.equals(c.getEmail(), email)){
-                System.out.println("Bem vind@, " + c.getNome() + "!");
-                c.setLoggedIn(true);
-                break;
-            }
-        }
-    }
-
-    // TODO opiniao do francisco
     // o que eu fiz, da a possibilidade de o utilizador errar o email
+    // TODO melhorar a funco: - a funçao devolve o objeto do respetivo cliente, isto porque depois é so procurar os respetivos ficheiros do cliente para o comportamento do programa
     public static boolean verificaLogin (String email) {
         boolean flag = false;
 
