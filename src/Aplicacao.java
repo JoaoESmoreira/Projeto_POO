@@ -13,30 +13,21 @@ public class Aplicacao {
     }
 
     static void leituraClientes () {
-        try {
-            FileReader file   = new FileReader("Clientes.txt");
-            BufferedReader bf = new BufferedReader(file);
-            String line;
+        LeituraFicheiros ficheiro = new LeituraFicheiros();
+        ficheiro.setTitulo("Clientes.txt");
+        ficheiro.leitura();
 
-            while (true) {
-                line = bf.readLine();
+        ArrayList<String> leitura = ficheiro.getLines();
 
-                if (line != null) {
-                    String[] dados = line.split(",");
+        for (String str : leitura) {
+            String[] dados = str.split(",");
 
-                    // criar a data
-                    String[] data =  dados[4].split("/");  // dei split da string original do ficheiro
-                    Data d        = new Data(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]));  // criei o objeto data e converti as strings em inteiros
+            // criar a data
+            String[] data =  dados[4].split("/");  // dei split da string original do ficheiro
+            Data d        = new Data(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]));  // criei o objeto data e converti as strings em inteiros
 
-                    // adicionar o cliente à arraylist
-                    clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d));
-                } else {
-                    break;
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Erro" + e.getMessage());
+            // adicionar o cliente à arraylist
+            clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d));
         }
     }
 
