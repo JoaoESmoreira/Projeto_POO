@@ -1,5 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,14 +30,13 @@ public class Aplicacao {
     }
 
     // o que eu fiz, da a possibilidade de o utilizador errar o email
-    // TODO melhorar a funco: - a funçao devolve o objeto do respetivo cliente, isto porque depois é so procurar os respetivos ficheiros do cliente para o comportamento do programa
-    public static boolean verificaLogin (String email) {
-        boolean flag = false;
+    public static Cliente verificaLogin (String email) {
+        Cliente flag = null;
 
         // percebo perfeitamente que o programa nao está otimizado, mas respeita as boas praticas: ALGO QUE A PROF GOSTA
         for (Cliente c : clientes) {
             if (c.getEmail().equals(email)) {
-                flag = true;
+                flag = c;
                 c.setLoggedIn(true);
                 System.out.println("Bem vind@, " + c.getNome() + "!");
             }
@@ -47,9 +44,9 @@ public class Aplicacao {
         return flag;
     }
 
-    public static void login1 () {
+    public static Cliente login () {
         Scanner sn = new Scanner(System.in);
-        boolean verificacao;
+        Cliente verificacao;
 
         do {
             System.out.print("Introduza o endereco de email: ");
@@ -57,11 +54,12 @@ public class Aplicacao {
 
             verificacao  = verificaLogin(email);
 
-            if (!verificacao)
+            if (verificacao == null)
                 System.out.println("Email nao verificado!");
 
-        } while (!verificacao);
+        } while (verificacao == null);
 
+        return verificacao;
     }
 
     static void menu () {
@@ -75,7 +73,7 @@ public class Aplicacao {
     public static void main(String[] args){
         adicionaClientes();
         leituraClientes();
-        login1();
+        Cliente clienteOnline = login();
 
         int option;
         Scanner sn = new Scanner(System.in);
