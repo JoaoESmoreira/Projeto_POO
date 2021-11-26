@@ -24,15 +24,14 @@ public class LeituraFicheiros {
             BufferedReader bR = new BufferedReader(fR);
             String line;
 
-            while (true) {
+            do {
                 line = bR.readLine();
 
-                if (line != null) {
+                if (line != null)
                     texto.add(line);
-                } else {
-                    break;
-                }
-            }
+
+            } while (line != null);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
