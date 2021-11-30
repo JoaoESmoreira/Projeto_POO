@@ -67,7 +67,6 @@ public class Aplicacao {
     public static void main(String[] args){
         leituraClientes();
         // TODO leitura dos produtos
-        
         Cliente clienteOnline = login();
 
         int option;
