@@ -1,2 +1,5 @@
 Joao,Porto,jotamax@sapo.com,919177457,2002/03/16,
 Emanuel,Por ai,ola@gmail.com,919123999,2002/03/17,
+Francisco,Coimbra,fmacedo@student.uc.pt,969715348,2002/3/10,
+Manuel,Lisboa,manuel.mail@gmail.com,915473877,1992/5/16,
+Joana,Porto,joana.mail@hotmail.com,924106841,1989/10/3,

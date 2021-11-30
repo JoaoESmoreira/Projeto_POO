@@ -4,12 +4,6 @@ import java.util.Scanner;
 public class Aplicacao {
     static ArrayList<Cliente> clientes = new ArrayList<>();
 
-    public static void adicionaClientes(){
-        clientes.add(new Cliente("Francisco", "Coimbra", "fmacedo@student.uc.pt", 969715348, new Data(2002,3, 10)));
-        clientes.add(new Cliente("Manuel", "Lisboa", "manuel.mail@gmail.com", 915473877, new Data(1992, 5, 16)));
-        clientes.add(new Cliente("Joana", "Porto", "joana.mail@hotmail.com", 924106841, new Data(1989, 10, 3)));
-    }
-
     static void leituraClientes () {
         LeituraFicheiros ficheiro = new LeituraFicheiros();
         ficheiro.setTitulo("Clientes.txt");
@@ -71,8 +65,9 @@ public class Aplicacao {
 
     // TODO ___________________________________MAIN_______________________________________________
     public static void main(String[] args){
-        adicionaClientes();
         leituraClientes();
+        // TODO leitura dos produtos
+        
         Cliente clienteOnline = login();
 
         int option;
