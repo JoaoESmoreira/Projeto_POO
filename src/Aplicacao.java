@@ -77,6 +77,8 @@ public class Aplicacao {
         armazem.addStock("inventario.txt");
 
         Cliente clienteOnline = login();
+        Vendas  historico = new Vendas();
+        historico.setCliente(clienteOnline);
 
         int option;
         Scanner sn = new Scanner(System.in);
@@ -114,6 +116,10 @@ public class Aplicacao {
                     break;
                 case 2:
                     // TODO listar historico de compras
+                    LeituraFicheiros ficheiroHistorico = new LeituraFicheiros();
+                    ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
+                    ficheiroHistorico.leitura();
+                    ficheiroHistorico.printTexto();
                     break;
             }
         } while (option != 0);
