@@ -3,7 +3,7 @@ public class Produto {
     protected String nome;
 
     public Produto(){}
-    
+
     public Produto(int id, int stock, int preco, String nome) {
         this.id = id;
         this.stock = stock;
@@ -45,8 +45,10 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "id=" + id +
+        return "Produto{" +
+                "id=" + id +
                 ", stock=" + stock +
+                ", preco=" + preco +
                 ", nome='" + nome + '\'' +
                 '}';
     }

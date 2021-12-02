@@ -3,6 +3,12 @@ public class Alimentar extends Produto{
 
     public Alimentar(){}
 
+    public Alimentar(int id, int stock, int preco, String nome, int cal, int fat) {
+        super(id, stock, preco, nome);
+        this.cal = cal;
+        this.fat = fat;
+    }
+
     public int getCal() {
         return cal;
     }

@@ -74,7 +74,7 @@ public class Aplicacao {
 
         leituraClientes();
         // TODO leitura dos produtos
-        armazem.addStock(new File("inventario.txt"));
+        armazem.addStock("inventario.txt");
 
         Cliente clienteOnline = login();
 

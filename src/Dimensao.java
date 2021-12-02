@@ -3,6 +3,12 @@ public class Dimensao {
     private int largura;
     private int profundidade;
 
+    public Dimensao(int altura, int largura, int profundidade) {
+        this.altura = altura;
+        this.largura = largura;
+        this.profundidade = profundidade;
+    }
+
     public int getAltura() {
         return altura;
     }

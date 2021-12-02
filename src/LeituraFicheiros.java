@@ -31,7 +31,7 @@ public class LeituraFicheiros {
                     texto.add(line);
 
             } while (line != null);
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }

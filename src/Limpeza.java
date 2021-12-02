@@ -3,6 +3,11 @@ public class Limpeza extends Produto{
 
     public Limpeza(){}
 
+    public Limpeza(int id, int stock, int preco, String nome, int tox) {
+        super(id, stock, preco, nome);
+        this.tox = tox;
+    }
+
     public int getTox() {
         return tox;
     }

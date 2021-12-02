@@ -1,7 +1,14 @@
 public class Mobiliario extends Produto{
-    private int peso, dim;
+    private int peso;
+    private Dimensao dim;
 
     public Mobiliario(){}
+
+    public Mobiliario(int id, int stock, int preco, String nome, int peso, Dimensao dim) {
+        super(id, stock, preco, nome);
+        this.peso = peso;
+        this.dim = dim;
+    }
 
     public int getPeso() {
         return peso;
@@ -11,11 +18,11 @@ public class Mobiliario extends Produto{
         this.peso = peso;
     }
 
-    public int getDim() {
+    public Dimensao getDim() {
         return dim;
     }
 
-    public void setDim(int dim) {
+    public void setDim(Dimensao dim) {
         this.dim = dim;
     }
 
