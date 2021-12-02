@@ -3,6 +3,13 @@ public class Produto {
     protected String nome;
 
     public Produto(){}
+    
+    public Produto(int id, int stock, int preco, String nome) {
+        this.id = id;
+        this.stock = stock;
+        this.preco = preco;
+        this.nome = nome;
+    }
 
     public int getId() {
         return id;
