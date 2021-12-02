@@ -1,7 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,7 +19,7 @@ public class Aplicacao {
             Data d = new Data(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]));  // criei o objeto data e converti as strings em inteiros
 
             // adicionar o cliente à arraylist
-            clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d));
+            clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d, Integer.parseInt(dados[5])));
         }
     }
 
@@ -60,11 +56,12 @@ public class Aplicacao {
         return verificacao;
     }
 
-    static void menu(int val) {
+    static void menu(int val, int del) {
         System.out.println("Introduza: 0 - para fazer logout\n" +
                 "Introduza: 1 - para efetuar uma compra\n" +
                 "Introduza: 2 - para ver o seu histórico de compras\n\n" +
-                "Valor do carrinho: " + val + "€\n");
+                "Valor do carrinho: " + val + "€\n" +
+                "Custo da entrega: " + del + "€\n");
     }
 
     // TODO ___________________________________MAIN_______________________________________________
@@ -77,50 +74,55 @@ public class Aplicacao {
         armazem.addStock("inventario.txt");
 
         Cliente clienteOnline = login();
-        Vendas  historico = new Vendas();
+        Vendas historico = new Vendas();
         historico.setCliente(clienteOnline);
 
         int option;
         Scanner sn = new Scanner(System.in);
 
-        int checkout = 0;
+        int cart = 0;
+        int delivery = 0;
 
         do {
-            menu(checkout);
+            menu(cart, delivery);
             option = sn.nextInt();
 
             switch (option) {
-                case 1:
+                case 1 -> {
                     // TODO efetuar compras
                     armazem.printArmazem();
                     System.out.print("Insira o ID: ");
                     int id = sn.nextInt();
-
                     for (Produto p : stock) {
                         if (p.getId() == id) {
                             System.out.print("Qual a quantidade desejada? ");
                             int q = sn.nextInt();
-                            while(q > p.getStock()) {
+                            while (q > p.getStock()) {
                                 System.out.println("De momento não possuímos esse stock. :(");
                                 System.out.print("Qual a quantidade desejada? ");
                                 q = sn.nextInt();
                             }
 
-                            p.setStock(p.getStock() - q);
+                            p.setStock(p.getStock() - q); //A entrega nao pode estar sempre a acumular
                             System.out.println("Done :)\n");
-                            checkout += p.getPreco() * q;
+                            cart += p.getPreco() * q;
+                            if (cart > 40 && clienteOnline.getFrequente()) {
+                                delivery = 0;
+                            } else if (cart <= 40 && clienteOnline.getFrequente()) {
+                                delivery += 15;
+                            } else {
+                                delivery += 20;
+                            }
                         }
-
                     }
-
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     // TODO listar historico de compras
                     LeituraFicheiros ficheiroHistorico = new LeituraFicheiros();
                     ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
                     ficheiroHistorico.leitura();
                     ficheiroHistorico.printTexto();
-                    break;
+                }
             }
         } while (option != 0);
 
