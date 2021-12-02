@@ -88,7 +88,7 @@ public class Aplicacao {
             option = sn.nextInt();
 
             switch (option) {
-                case 1 -> {
+                case 1 :{
                     // TODO efetuar compras
                     armazem.printArmazem();
                     System.out.print("Insira o ID: ");
@@ -116,7 +116,7 @@ public class Aplicacao {
                         }
                     }
                 }
-                case 2 -> {
+                case 2 : {
                     // TODO listar historico de compras
                     LeituraFicheiros ficheiroHistorico = new LeituraFicheiros();
                     ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
