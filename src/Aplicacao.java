@@ -115,6 +115,7 @@ public class Aplicacao {
                             }
                         }
                     }
+                    break;
                 }
                 case 2 : {
                     // TODO listar historico de compras
@@ -122,13 +123,10 @@ public class Aplicacao {
                     ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
                     ficheiroHistorico.leitura();
                     ficheiroHistorico.printTexto();
+                    break;
                 }
             }
         } while (option != 0);
-
-        for (
-                Cliente c : clientes)
-            System.out.println(c);
 
         armazem.printArmazem();
 
