@@ -83,6 +83,8 @@ public class Aplicacao {
         int cart = 0;
         int delivery = 0;
 
+        ArrayList<Produto> carrinho = new ArrayList<>();
+
         do {
             menu(cart, delivery);
             option = sn.nextInt();
@@ -105,14 +107,28 @@ public class Aplicacao {
 
                             p.setStock(p.getStock() - q); //A entrega nao pode estar sempre a acumular
                             System.out.println("Done :)\n");
-                            cart += p.getPreco() * q;
+
+                            for(int i = 0; i < q; i++){
+                                carrinho.add(p);
+                            }
+
+                            for(Produto produto: carrinho){ // TODO DESCONTOS verificar tudo
+                                switch (produto.getPromo()){
+                                    case 0 -> {
+                                        cart += produto.getPreco();
+                                    }
+                                }
+                            }
+
+                            /*
                             if (cart > 40 && clienteOnline.getFrequente()) {
                                 delivery = 0;
                             } else if (cart <= 40 && clienteOnline.getFrequente()) {
                                 delivery += 15;
                             } else {
                                 delivery += 20;
-                            }
+                            }*/
+
                         }
                     }
                 }
@@ -126,8 +142,7 @@ public class Aplicacao {
             }
         } while (option != 0);
 
-        for (
-                Cliente c : clientes)
+        for (Cliente c : clientes)
             System.out.println(c);
 
         armazem.printArmazem();

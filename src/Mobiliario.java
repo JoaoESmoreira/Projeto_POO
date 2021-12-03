@@ -1,13 +1,39 @@
-public class Mobiliario extends Produto{
+public class Mobiliario extends Produto implements Promocao{
     private int peso;
     private Dimensao dim;
 
     public Mobiliario(){}
 
-    public Mobiliario(int id, int stock, int preco, String nome, int peso, Dimensao dim) {
-        super(id, stock, preco, nome);
+    public Mobiliario(int id, int stock, int preco, String nome, int peso, Dimensao dim, int promo) {
+        super(id, stock, preco, nome, promo);
         this.peso = peso;
         this.dim = dim;
+    }
+
+    public int getPromo() {
+        return promo;
+    }
+
+    public void setPromo(int promo) {
+        this.promo = promo;
+    }
+
+    @Override
+    public int leve4pague3(int q, Produto p) {
+        return (q - (q / 4)) * p.getPreco();
+    }
+
+    @Override
+    public int pagueMenos(int q, Produto p) {
+        float cost = 0;
+        float per = 1;
+        for(int i = 0; i < q; i++){
+            cost += p.getPreco()*per;
+            if(per >= 0.5){
+                per -= 0.05;
+            }
+        }
+        return (int) cost;
     }
 
     public int getPeso() {

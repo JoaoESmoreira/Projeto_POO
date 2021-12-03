@@ -1,14 +1,23 @@
 public class Produto {
-    protected int id, stock, preco;
+    protected int id, stock, preco, promo;
     protected String nome;
 
     public Produto(){}
 
-    public Produto(int id, int stock, int preco, String nome) {
+    public Produto(int id, int stock, int preco, String nome, int promo) {
         this.id = id;
         this.stock = stock;
         this.preco = preco;
         this.nome = nome;
+        this.promo = promo;
+    }
+
+    public int getPromo() {
+        return promo;
+    }
+
+    public void setPromo(int promo) {
+        this.promo = promo;
     }
 
     public int getId() {
