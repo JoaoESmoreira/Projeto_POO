@@ -2,22 +2,22 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class LerFicheiroObjetos {
-    private ArrayList<Produto> produtos;
+    private ArrayList<Vendas> venda;
     private String            titulo;
 
     public LerFicheiroObjetos () {
-        produtos = new ArrayList<>();
+        venda = new ArrayList<>();
     }
     public LerFicheiroObjetos (String titulo) {
-        produtos    = new ArrayList<>();
+        venda      = new ArrayList<>();
         this.titulo = titulo;
     }
 
-    public ArrayList<Produto> getProdutos() {
-        return produtos;
+    public ArrayList<Vendas> getVenda() {
+        return venda;
     }
-    public void setProdutos(ArrayList<Produto> produtos) {
-        this.produtos = produtos;
+    public void setVendas(ArrayList<Vendas> vendas) {
+        this.venda = vendas;
     }
 
     public String getTitulo() {
@@ -27,8 +27,8 @@ public class LerFicheiroObjetos {
         this.titulo = titulo;
     }
 
-    public void addProduto (Produto produto) {
-        produtos.add(produto);
+    public void addVendas (Vendas vendas) {
+        this.venda.add(vendas);
     }
 
     public void leitura () {
@@ -38,12 +38,14 @@ public class LerFicheiroObjetos {
             FileInputStream fis = new FileInputStream(f);
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-            Produto p;
+            Vendas venda;
             do {
-                p = (Produto) ois.readObject();
-                if (p != null)
-                    produtos.add(p);
-            } while (p != null);
+                venda = (Vendas) ois.readObject();
+
+                if (venda != null)
+                    addVendas(venda);
+
+            } while (venda != null);
 
             ois.close();
 
@@ -53,8 +55,10 @@ public class LerFicheiroObjetos {
     }
 
     public void printTexto () {
-        for (Produto produto : produtos) {
-            System.out.print(produto + " ");
-        }
+        for (Vendas vendas : venda) {
+            System.out.println("Voce ja comprou :");
+            vendas.printListaCompras();
+            System.out.println("\n\n Já gastou: " + vendas.getCusto());
+        }   
     }
 }
