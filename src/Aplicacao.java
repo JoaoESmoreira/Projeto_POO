@@ -143,13 +143,6 @@ public class Aplicacao {
                 }
             }
         } while (option != 0);
-
-<<<<<<< HEAD
-=======
-        for (Cliente c : clientes)
-            System.out.println(c);
-
->>>>>>> workTest
         armazem.printArmazem();
 
     }
