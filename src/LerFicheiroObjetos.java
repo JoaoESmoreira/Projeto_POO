@@ -51,4 +51,10 @@ public class LerFicheiroObjetos {
             e.printStackTrace();
         }
     }
+
+    public void printTexto () {
+        for (Produto produto : produtos) {
+            System.out.print(produto + " ");
+        }
+    }
 }

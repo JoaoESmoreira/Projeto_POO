@@ -133,7 +133,7 @@ public class Aplicacao {
                 }
                 case 2 : {
                     // TODO listar historico de compras
-                    LeituraFicheiros ficheiroHistorico = new LeituraFicheiros();
+                    LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
                     ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
                     ficheiroHistorico.leitura();
                     ficheiroHistorico.printTexto();
