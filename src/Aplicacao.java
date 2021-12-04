@@ -90,7 +90,7 @@ public class Aplicacao {
             option = sn.nextInt();
 
             switch (option) {
-                case 1 :{
+                case 1 : {
                     // TODO efetuar compras
                     armazem.printArmazem();
                     System.out.print("Insira o ID: ");
@@ -113,10 +113,8 @@ public class Aplicacao {
                             }
 
                             for(Produto produto: carrinho){ // TODO DESCONTOS verificar tudo
-                                switch (produto.getPromo()){
-                                    case 0 -> {
-                                        cart += produto.getPreco();
-                                    }
+                                if (produto.getPromo() == 0) {
+                                    cart += produto.getPreco();
                                 }
                             }
 
@@ -135,7 +133,7 @@ public class Aplicacao {
                 }
                 case 2 : {
                     // TODO listar historico de compras
-                    LeituraFicheiros ficheiroHistorico = new LeituraFicheiros();
+                    LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
                     ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
                     ficheiroHistorico.leitura();
                     ficheiroHistorico.printTexto();
