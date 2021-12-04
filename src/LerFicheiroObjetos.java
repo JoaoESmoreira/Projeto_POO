@@ -59,6 +59,6 @@ public class LerFicheiroObjetos {
             System.out.println("Voce ja comprou :");
             vendas.printListaCompras();
             System.out.println("\n\n Já gastou: " + vendas.getCusto());
-        }   
+        }
     }
 }
