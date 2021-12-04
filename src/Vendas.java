@@ -38,6 +38,11 @@ public class Vendas {
         this.custo = custo;
     }
 
+    public void printListaCompras () {
+        for (Produto produto : listaCompras)
+            System.out.print(produto + " / ");
+    }
+
     public String toString() {
         return  "listaCompras: " + listaCompras + ", cliente" + cliente + ", custo=" + custo;
     }

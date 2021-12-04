@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Aplicacao {
     static ArrayList<Cliente> clientes = new ArrayList<>();
 
-    static void leituraClientes () {
+    static void leituraClientes() {
         LeituraFicheiros ficheiro = new LeituraFicheiros();
         ficheiro.setTitulo("Clientes.txt");
         ficheiro.leitura();
@@ -15,16 +15,16 @@ public class Aplicacao {
             String[] dados = str.split(",");
 
             // criar a data
-            String[] data =  dados[4].split("/");  // dei split da string original do ficheiro
-            Data d        = new Data(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]));  // criei o objeto data e converti as strings em inteiros
+            String[] data = dados[4].split("/");  // dei split da string original do ficheiro
+            Data d = new Data(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]));  // criei o objeto data e converti as strings em inteiros
 
             // adicionar o cliente à arraylist
-            clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d));
+            clientes.add(new Cliente(dados[0], dados[1], dados[2], Integer.parseInt(dados[3]), d, Integer.parseInt(dados[5])));
         }
     }
 
     // o que eu fiz, da a possibilidade de o utilizador errar o email
-    public static Cliente verificaLogin (String email) {
+    public static Cliente verificaLogin(String email) {
         Cliente flag = null;
 
         // percebo perfeitamente que o programa nao está otimizado, mas respeita as boas praticas: ALGO QUE A PROF GOSTA
@@ -38,7 +38,7 @@ public class Aplicacao {
         return flag;
     }
 
-    public static Cliente login () {
+    public static Cliente login() {
         Scanner sn = new Scanner(System.in);
         Cliente verificacao;
 
@@ -46,7 +46,7 @@ public class Aplicacao {
             System.out.print("Introduza o endereco de email: ");
             String email = sn.nextLine();
 
-            verificacao  = verificaLogin(email);
+            verificacao = verificaLogin(email);
 
             if (verificacao == null)
                 System.out.println("Email nao verificado!");
@@ -56,39 +56,100 @@ public class Aplicacao {
         return verificacao;
     }
 
-    static void menu () {
+    static void menu(int val, int del) {
         System.out.println("Introduza: 0 - para fazer logout\n" +
-                           "Introduza: 1 - para efetuar uma compra\n" +
-                           "Introduza: 2 - para ver o seu histórico de compras\n");
+                "Introduza: 1 - para efetuar uma compra\n" +
+                "Introduza: 2 - para ver o seu histórico de compras\n\n" +
+                "Valor do carrinho: " + val + "€\n" +
+                "Custo da entrega: " + del + "€\n");
     }
 
-
     // TODO ___________________________________MAIN_______________________________________________
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        ArrayList<Produto> stock = new ArrayList<>();
+        Armazem armazem = new Armazem(stock);
+
         leituraClientes();
         // TODO leitura dos produtos
-        
+        armazem.addStock("inventario.txt");
+
         Cliente clienteOnline = login();
+        Vendas historico = new Vendas();
+        historico.setCliente(clienteOnline);
+        LerFicheiroObjetos fichHistorico = new LerFicheiroObjetos("Francisco.txt");
 
         int option;
         Scanner sn = new Scanner(System.in);
 
+        int cart = 0;
+        int delivery = 0;
+
+        ArrayList<Produto> carrinho = new ArrayList<>();
+
+
         do {
-            menu();
+            menu(cart, delivery);
             option = sn.nextInt();
 
             switch (option) {
-                case 1:
+                case 1 : {
                     // TODO efetuar compras
+                    armazem.printArmazem();
+                    System.out.print("Insira o ID: ");
+                    int id = sn.nextInt();
+                    for (Produto p : stock) {
+                        if (p.getId() == id) {
+                            System.out.print("Qual a quantidade desejada? ");
+                            int q = sn.nextInt();
+                            while (q > p.getStock()) {
+                                System.out.println("De momento não possuímos esse stock. :(");
+                                System.out.print("Qual a quantidade desejada? ");
+                                q = sn.nextInt();
+                            }
+
+                            p.setStock(p.getStock() - q);
+
+                            for(int i = 0; i < q; i++){
+                                carrinho.add(p);
+                                fichHistorico.escrita(clienteOnline, p, q);
+                            }
+
+                            System.out.println("Done :)\n");
+
+                            for(Produto produto: carrinho){ // TODO DESCONTOS verificar tudo
+                                if (produto.getPromo() == 0) {
+                                    cart += produto.getPreco();
+                                }
+                            }
+
+                            /* //A entrega nao pode estar sempre a acumular
+                            if (cart > 40 && clienteOnline.getFrequente()) {
+                                delivery = 0;
+                            } else if (cart <= 40 && clienteOnline.getFrequente()) {
+                                delivery += 15;
+                            } else {
+                                delivery += 20;
+                            }*/
+
+                        }
+                    }
                     break;
-                case 2:
+                }
+                case 2 : {
                     // TODO listar historico de compras
+                    LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
+                    ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
+                    ficheiroHistorico.leituraAntigo();
+                    ficheiroHistorico.printTexto();
+
                     break;
+                }
             }
         } while (option != 0);
 
-        for (Cliente c : clientes)
-            System.out.println(c);
+        fichHistorico.leitura(clienteOnline);
 
     }
+
+
 }

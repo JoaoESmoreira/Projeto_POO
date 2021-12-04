@@ -31,7 +31,7 @@ public class LeituraFicheiros {
                     texto.add(line);
 
             } while (line != null);
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,5 +45,11 @@ public class LeituraFicheiros {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public void printTexto () {
+        for (String linhas : lines) {
+            System.out.println(linhas);
+        }
     }
 }

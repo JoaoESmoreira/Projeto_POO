@@ -1,8 +1,26 @@
-public class Produto {
-    protected int id, stock, preco;
+import java.io.Serializable;
+
+public class Produto implements Serializable {
+    protected int id, stock, preco, promo;
     protected String nome;
 
     public Produto(){}
+
+    public Produto(int id, int stock, int preco, String nome, int promo) {
+        this.id = id;
+        this.stock = stock;
+        this.preco = preco;
+        this.nome = nome;
+        this.promo = promo;
+    }
+
+    public int getPromo() {
+        return promo;
+    }
+
+    public void setPromo(int promo) {
+        this.promo = promo;
+    }
 
     public int getId() {
         return id;
@@ -38,9 +56,8 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "id=" + id +
-                ", stock=" + stock +
-                ", nome='" + nome + '\'' +
-                '}';
+        return  nome + "\nID: " + id +
+                "\nStock: " + stock +
+                "\nPreco: " + preco + "\n";
     }
 }
