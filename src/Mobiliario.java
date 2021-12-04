@@ -1,7 +1,42 @@
-public class Mobiliario extends Produto{
-    private int peso, dim;
+import java.io.Serializable;
+
+public class Mobiliario extends Produto implements Promocao, Serializable {
+    private int peso;
+    private Dimensao dim;
 
     public Mobiliario(){}
+
+    public Mobiliario(int id, int stock, int preco, String nome, int peso, Dimensao dim, int promo) {
+        super(id, stock, preco, nome, promo);
+        this.peso = peso;
+        this.dim = dim;
+    }
+
+    public int getPromo() {
+        return promo;
+    }
+
+    public void setPromo(int promo) {
+        this.promo = promo;
+    }
+
+    @Override
+    public int leve4pague3(int q, Produto p) {
+        return (q - (q / 4)) * p.getPreco();
+    }
+
+    @Override
+    public int pagueMenos(int q, Produto p) {
+        float cost = 0;
+        float per = 1;
+        for(int i = 0; i < q; i++){
+            cost += p.getPreco()*per;
+            if(per >= 0.5){
+                per -= 0.05;
+            }
+        }
+        return (int) cost;
+    }
 
     public int getPeso() {
         return peso;
@@ -11,11 +46,11 @@ public class Mobiliario extends Produto{
         this.peso = peso;
     }
 
-    public int getDim() {
+    public Dimensao getDim() {
         return dim;
     }
 
-    public void setDim(int dim) {
+    public void setDim(Dimensao dim) {
         this.dim = dim;
     }
 
@@ -50,10 +85,8 @@ public class Mobiliario extends Produto{
 
     @Override
     public String toString() {
-        return "Mobiliario{" +
-                super.toString() +
-                "peso=" + peso +
-                ", dim=" + dim +
-                '}';
+        return super.toString() +
+                "Peso: " + peso +
+                "\nDimensao: " + dim + "\n";
     }
 }

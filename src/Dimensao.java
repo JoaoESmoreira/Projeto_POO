@@ -1,7 +1,15 @@
-public class Dimensao {
+import java.io.Serializable;
+
+public class Dimensao implements Serializable {
     private int altura;
     private int largura;
     private int profundidade;
+
+    public Dimensao(int altura, int largura, int profundidade) {
+        this.altura = altura;
+        this.largura = largura;
+        this.profundidade = profundidade;
+    }
 
     public int getAltura() {
         return altura;

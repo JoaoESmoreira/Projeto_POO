@@ -3,15 +3,29 @@ public class Cliente {
     private int telefone;
     private Data dataNascimento;
     private Boolean loggedIn = false;
+    private Boolean frequente = false;
 
-    public Cliente(){}
+    public Cliente() {
+    }
 
-    public Cliente(String nome, String morada, String email, int telefone, Data dataNascimento){
+    public Cliente(String nome, String morada, String email, int telefone, Data dataNascimento, int n) {
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.nome = nome;
         this.morada = morada;
         this.telefone = telefone;
+        if (n == 1) {
+            frequente = true;
+        }
+    }
+
+
+    public Boolean getFrequente() {
+        return frequente;
+    }
+
+    public void setFrequente(Boolean frequente) {
+        this.frequente = frequente;
     }
 
     public String getNome() {
@@ -69,6 +83,7 @@ public class Cliente {
                 "morada: " + morada + '\n' +
                 "email: " + email + '\n' +
                 "telefone: " + telefone + '\n' +
-                "dataNascimento: " + dataNascimento + '\n';
+                "dataNascimento: " + dataNascimento + '\n' +
+                "cliente Frequente: " + frequente + '\n';
     }
 }
