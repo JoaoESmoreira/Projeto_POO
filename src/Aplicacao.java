@@ -71,11 +71,8 @@ public class Aplicacao {
 
         leituraClientes();
         // TODO leitura dos produtos
-<<<<<<< HEAD
-=======
         armazem.addStock("inventario.txt");
 
->>>>>>> 541b4bf1a6d3024329e5a31acfc79e39c32f58ab
         Cliente clienteOnline = login();
         Vendas historico = new Vendas();
         historico.setCliente(clienteOnline);
