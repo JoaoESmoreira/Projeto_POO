@@ -129,11 +129,11 @@ public class Aplicacao {
             }
         } while (option != 0);
 
-        armazem.printArmazem();
-        System.out.println("CARRO DE COMPRAS");
-        historicoVenda.printListaCompras();
-        System.out.println("preço final: " + historicoVenda.getCusto());
+        LerFicheiroObjetos escreve = new LerFicheiroObjetos();
+        escreve.setTitulo("Francisco.obj");
+        escreve.escrita2(historicoVenda);
+        escreve.leituraAntigo();
 
 
-    }
+        }
 }
