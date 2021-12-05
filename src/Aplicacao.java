@@ -63,29 +63,22 @@ public class Aplicacao {
                 "Valor do carrinho: " + val + "€\n" +
                 "Custo da entrega: " + del + "€\n");
     }
-
     // TODO ___________________________________MAIN_______________________________________________
     public static void main(String[] args) {
-        ArrayList<Produto> stock = new ArrayList<>();
-        Armazem armazem = new Armazem(stock);
-
         leituraClientes();
-        // TODO leitura dos produtos
-        armazem.addStock("inventario.txt");
-
         Cliente clienteOnline = login();
-        Vendas historico = new Vendas();
-        historico.setCliente(clienteOnline);
-        LerFicheiroObjetos fichHistorico = new LerFicheiroObjetos("Francisco.txt");
 
-        int option;
-        Scanner sn = new Scanner(System.in);
+        Armazem armazem       = new Armazem();
+        Vendas historicoVenda = new Vendas();
+
+        historicoVenda.setCliente(clienteOnline);
+        armazem.addStock("inventario.txt");
 
         int cart = 0;
         int delivery = 0;
 
-        ArrayList<Produto> carrinho = new ArrayList<>();
-
+        int option;
+        Scanner sn = new Scanner(System.in);
 
         do {
             menu(cart, delivery);
@@ -96,60 +89,51 @@ public class Aplicacao {
                     // TODO efetuar compras
                     armazem.printArmazem();
                     System.out.print("Insira o ID: ");
+
                     int id = sn.nextInt();
-                    for (Produto p : stock) {
-                        if (p.getId() == id) {
+                    Produto produtoDesejado = armazem.produtoNoArmazem(id);
+
+                    if (produtoDesejado != null) {
+
+                        int quantidade;
+                        do {
                             System.out.print("Qual a quantidade desejada? ");
-                            int q = sn.nextInt();
-                            while (q > p.getStock()) {
-                                System.out.println("De momento não possuímos esse stock. :(");
-                                System.out.print("Qual a quantidade desejada? ");
-                                q = sn.nextInt();
-                            }
+                            quantidade = sn.nextInt();
 
-                            p.setStock(p.getStock() - q);
+                        } while (quantidade > produtoDesejado.getStock());
 
-                            for(int i = 0; i < q; i++){
-                                carrinho.add(p);
-                                fichHistorico.escrita(clienteOnline, p, q);
-                            }
+                        produtoDesejado.setStock(produtoDesejado.getStock() - quantidade);
 
-                            System.out.println("Done :)\n");
-
-                            for(Produto produto: carrinho){ // TODO DESCONTOS verificar tudo
-                                if (produto.getPromo() == 0) {
-                                    cart += produto.getPreco();
-                                }
-                            }
-
-                            /* //A entrega nao pode estar sempre a acumular
-                            if (cart > 40 && clienteOnline.getFrequente()) {
-                                delivery = 0;
-                            } else if (cart <= 40 && clienteOnline.getFrequente()) {
-                                delivery += 15;
-                            } else {
-                                delivery += 20;
-                            }*/
-
+                        for (int i = 0; i < quantidade; ++i) {
+                            historicoVenda.addProdutoNaListaCompras(produtoDesejado);
                         }
+
+                    } else {
+                        System.out.println("Nao exite produtos com esse ID");
                     }
+                    // TODO escrever o hitorico num ficheiro de objetos
                     break;
                 }
                 case 2 : {
                     // TODO listar historico de compras
                     LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
-                    ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
+                    //ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
+                    ficheiroHistorico.setTitulo("Francisco.txt");
                     ficheiroHistorico.leituraAntigo();
                     ficheiroHistorico.printTexto();
 
                     break;
-                }
+                } default:
+                    System.out.println("Operaçao invalida");
+                    break;
             }
         } while (option != 0);
 
-        fichHistorico.leitura(clienteOnline);
+        armazem.printArmazem();
+        System.out.println("CARRO DE COMPRAS");
+        historicoVenda.printListaCompras();
+        System.out.println("preço final: " + historicoVenda.getCusto());
+
 
     }
-
-
 }

@@ -5,7 +5,19 @@ import java.util.Objects;
 public class Armazem {
     private ArrayList<Produto> armazem;
 
+    public Armazem () {
+        this.armazem = new ArrayList<>();
+    }
+
     public Armazem(ArrayList<Produto> armazem) {
+        this.armazem = armazem;
+    }
+
+    public ArrayList<Produto> getArmazem() {
+        return armazem;
+    }
+
+    public void setArmazem(ArrayList<Produto> armazem) {
         this.armazem = armazem;
     }
 
@@ -31,6 +43,15 @@ public class Armazem {
                 armazem.add(new Mobiliario(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Integer.parseInt(dados[3]), dados[6], Integer.parseInt(dados[4]), d, Integer.parseInt(dados[7])));
             }
         }
+    }
+
+    public Produto produtoNoArmazem (int id) {
+        Produto flag = null;
+        for (Produto produto : armazem) {
+            if (produto.getId() == id)
+                flag = produto;
+        }
+        return flag;
     }
 
 
