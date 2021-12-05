@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Vendas {
+public class Vendas implements Serializable {
     private ArrayList<Produto> listaCompras;
     private Cliente            cliente;
     private int                custo;
@@ -8,6 +9,7 @@ public class Vendas {
     public Vendas () {
         this.listaCompras = new ArrayList<>();
     }
+
 
     public ArrayList<Produto> getListaCompras() {
         return listaCompras;
@@ -30,6 +32,10 @@ public class Vendas {
 
     public int getCusto() {
         return custo;
+    }
+
+    public void setCusto(int custo) {
+        this.custo = custo;
     }
 
     public int jaTeveDesconto (Produto produto, int pos) {

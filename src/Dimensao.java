@@ -5,7 +5,9 @@ public class Dimensao implements Serializable {
     private int largura;
     private int profundidade;
 
-    public Dimensao(int altura, int largura, int profundidade) {
+    public Dimensao () {}
+
+    public Dimensao (int altura, int largura, int profundidade) {
         this.altura = altura;
         this.largura = largura;
         this.profundidade = profundidade;

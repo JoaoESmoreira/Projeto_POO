@@ -5,8 +5,7 @@ public class Cliente {
     private Boolean loggedIn = false;
     private Boolean frequente = false;
 
-    public Cliente() {
-    }
+    public Cliente () {}
 
     public Cliente(String nome, String morada, String email, int telefone, Data dataNascimento, int n) {
         this.dataNascimento = dataNascimento;
@@ -18,7 +17,6 @@ public class Cliente {
             frequente = true;
         }
     }
-
 
     public Boolean getFrequente() {
         return frequente;

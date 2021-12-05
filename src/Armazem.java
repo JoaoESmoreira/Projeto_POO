@@ -9,7 +9,7 @@ public class Armazem {
         this.armazem = new ArrayList<>();
     }
 
-    public Armazem(ArrayList<Produto> armazem) {
+    public Armazem (ArrayList<Produto> armazem) {
         this.armazem = armazem;
     }
 
