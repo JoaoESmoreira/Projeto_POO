@@ -81,10 +81,14 @@ public class Aplicacao {
         Scanner sn = new Scanner(System.in);
 
         do {
-            menu(cart, delivery);
+            menu(historicoVenda.getCusto(), delivery);
             option = sn.nextInt();
 
             switch (option) {
+                case 0: {
+                    System.out.println("Logout!\n          Volte sempre!!");
+                    break;
+                }
                 case 1 : {
                     // TODO efetuar compras
                     armazem.printArmazem();
