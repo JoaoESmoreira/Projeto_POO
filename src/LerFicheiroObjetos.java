@@ -98,20 +98,6 @@ public class LerFicheiroObjetos {
         }
     }
 
-    public void escrita2 (Vendas venda) {
-        File f = new File(venda.getCliente().getNome() + ".obj");
-
-        try {
-            FileOutputStream fos = new FileOutputStream(f);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-            oos.writeObject(venda);
-            oos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void printTexto() {
         for (Vendas vendas : venda) {
             System.out.println("Voce ja comprou :");
