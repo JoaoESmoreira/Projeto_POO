@@ -35,6 +35,22 @@ public class LerFicheiroObjetos {
         this.venda.add(vendas);
     }
 
+    public void soQueroLerUm () {
+        File f = new File(titulo);
+
+        try {
+            FileInputStream fis = new FileInputStream(f);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            Vendas venda = (Vendas) ois.readObject();
+            addVendas(venda);
+
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+/*
     public void leituraAntigo() {
         File f = new File(titulo);
 
@@ -96,19 +112,24 @@ public class LerFicheiroObjetos {
         } catch (IOException e) {
             System.out.println("Erro escrita FO :(");
         }
-    }
+    }*/
 
-    public void escrita2 (Vendas venda) {
-        File f = new File(venda.getCliente().getNome() + ".obj");
+    public void escrita2 () {
 
-        try {
-            FileOutputStream fos = new FileOutputStream(f);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+        for (Vendas vendas : venda) {
 
-            oos.writeObject(venda);
-            oos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            File f = new File(vendas.getCliente().getNome());
+
+            try {
+                FileOutputStream fos = new FileOutputStream(f);
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+                oos.writeObject(vendas);
+
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

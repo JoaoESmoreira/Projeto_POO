@@ -1,4 +1,6 @@
-public class Data {
+import java.io.Serializable;
+
+public class Data implements Serializable {
     protected int ano, mes, dia;
 
     public Data() {

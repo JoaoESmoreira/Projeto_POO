@@ -121,9 +121,9 @@ public class Aplicacao {
                 case 2 : {
                     // TODO listar historico de compras
                     LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
-                    //ficheiroHistorico.setTitulo(historico.getCliente().getNome() + ".txt");
-                    ficheiroHistorico.setTitulo("Francisco.txt");
-                    ficheiroHistorico.leituraAntigo();
+                    //ficheiroHistorico.setTitulo(historico.getCliente().getNome());
+                    ficheiroHistorico.setTitulo("Francisco.obj");
+                    ficheiroHistorico.soQueroLerUm();
                     ficheiroHistorico.printTexto();
 
                     break;
@@ -135,9 +135,10 @@ public class Aplicacao {
 
         LerFicheiroObjetos escreve = new LerFicheiroObjetos();
         escreve.setTitulo("Francisco.obj");
-        escreve.escrita2(historicoVenda);
-        escreve.leituraAntigo();
-
-
-        }
+        escreve.addVendas(historicoVenda);
+        escreve.escrita2();
+        escreve.printTexto();
+    }
 }
+
+// fmacedo@student.uc.pt
