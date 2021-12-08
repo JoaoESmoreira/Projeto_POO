@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Limpeza extends Produto implements Promocao, Serializable {
+public class Limpeza extends Produto implements Serializable {
     private int tox;
 
     public Limpeza() {
@@ -9,24 +9,6 @@ public class Limpeza extends Produto implements Promocao, Serializable {
     public Limpeza(int id, int stock, int preco, String nome, int tox, int promo) {
         super(id, stock, preco, nome, promo);
         this.tox = tox;
-    }
-
-    @Override
-    public int leve4pague3(int q, Produto p) {
-        return (q - (q / 4)) * p.getPreco();
-    }
-
-    @Override
-    public int pagueMenos(int q, Produto p) {
-        float cost = 0;
-        float per = 1;
-        for (int i = 0; i < q; i++) {
-            cost += p.getPreco() * per;
-            if (per >= 0.5) {
-                per -= 0.05;
-            }
-        }
-        return (int) cost;
     }
 
     public int getPromo() {

@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Alimentar extends Produto implements Promocao, Serializable {
+public class Alimentar extends Produto implements Serializable {
     private int cal, fat;
 
     public Alimentar() {
@@ -10,24 +10,6 @@ public class Alimentar extends Produto implements Promocao, Serializable {
         super(id, stock, preco, nome, promo);
         this.cal = cal;
         this.fat = fat;
-    }
-
-    @Override
-    public int leve4pague3(int q, Produto p) {
-        return (q - (q / 4)) * p.getPreco();
-    }
-
-    @Override
-    public int pagueMenos(int q, Produto p) { //Verificar se é carrinho ou só compra
-        float cost = 0;
-        float per = 1;
-        for(int i = 0; i < q; i++){
-            cost += p.getPreco()*per;
-            if(per >= 0.5){
-                per -= 0.05;
-            }
-        }
-        return (int) cost;
     }
 
     public int getCal() {
@@ -46,6 +28,13 @@ public class Alimentar extends Produto implements Promocao, Serializable {
         this.fat = fat;
     }
 
+    public int getPromo() {
+        return super.getPromo();
+    }
+
+    public void setPromo(int promo) {
+        super.setPromo(promo);
+    }
 
     public int getId() {
         return super.getId();

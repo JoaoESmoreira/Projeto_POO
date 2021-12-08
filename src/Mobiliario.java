@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Mobiliario extends Produto implements Promocao, Serializable {
+public class Mobiliario extends Produto implements Serializable {
     private int peso;
     private Dimensao dim;
 
@@ -18,24 +18,6 @@ public class Mobiliario extends Produto implements Promocao, Serializable {
 
     public void setPromo(int promo) {
         this.promo = promo;
-    }
-
-    @Override
-    public int leve4pague3(int q, Produto p) {
-        return (q - (q / 4)) * p.getPreco();
-    }
-
-    @Override
-    public int pagueMenos(int q, Produto p) {
-        float cost = 0;
-        float per = 1;
-        for(int i = 0; i < q; i++){
-            cost += p.getPreco()*per;
-            if(per >= 0.5){
-                per -= 0.05;
-            }
-        }
-        return (int) cost;
     }
 
     public int getPeso() {
