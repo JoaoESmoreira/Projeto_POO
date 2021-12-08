@@ -31,7 +31,11 @@ public class Vendas implements Serializable {
     }
 
     public int getCusto() {
-        return custo;
+        int val = 0;
+        for(Produto p: listaCompras){
+            val += p.getPreco();
+        }
+        return val;
     }
 
     public void setCusto(int custo) {
@@ -85,6 +89,6 @@ public class Vendas implements Serializable {
 
     public void printListaCompras () {
         for (Produto produto : listaCompras)
-            System.out.print(produto.getNome() + " / " + produto.getPreco() + "€\n");
+            System.out.print(produto.getNome() + " -> " + produto.getPreco() + "€\n");
     }
 }

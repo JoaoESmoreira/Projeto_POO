@@ -35,6 +35,7 @@ public class LerFicheiroObjetos {
         this.venda.add(vendas);
     }
 
+    /*
     public void soQueroLerUm () {
         File f = new File(titulo);
 
@@ -50,7 +51,7 @@ public class LerFicheiroObjetos {
             e.printStackTrace();
         }
     }
-/*
+
     public void leituraAntigo() {
         File f = new File(titulo);
 
@@ -118,7 +119,7 @@ public class LerFicheiroObjetos {
 
         for (Vendas vendas : venda) {
 
-            File f = new File(vendas.getCliente().getNome());
+            File f = new File(vendas.getCliente().getNome() + ".obj");
 
             try {
                 FileOutputStream fos = new FileOutputStream(f);
@@ -135,9 +136,8 @@ public class LerFicheiroObjetos {
 
     public void printTexto() {
         for (Vendas vendas : venda) {
-            System.out.println("Voce ja comprou :");
             vendas.printListaCompras();
-            System.out.println("\n\n Já gastou: " + vendas.getCusto());
+            System.out.println("\nTotal: " + vendas.getCusto() + "€\n");
         }
     }
 }

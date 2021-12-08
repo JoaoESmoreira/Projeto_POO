@@ -4,10 +4,11 @@ public class Mobiliario extends Produto implements Promocao, Serializable {
     private int peso;
     private Dimensao dim;
 
-    public Mobiliario(){}
+    public Mobiliario() {
+    }
 
-    public Mobiliario(int id, int stock, int preco, String nome, int peso, Dimensao dim, int promo) {
-        super(id, stock, preco, nome, promo);
+    public Mobiliario(String tipo, int id, int stock, int preco, String nome, int peso, Dimensao dim, int promo) {
+        super(tipo, id, stock, preco, nome, promo);
         this.peso = peso;
         this.dim = dim;
     }
@@ -29,12 +30,17 @@ public class Mobiliario extends Produto implements Promocao, Serializable {
     public int pagueMenos(int q, Produto p) {
         float cost = 0;
         float per = 1;
-        for(int i = 0; i < q; i++){
-            cost += p.getPreco()*per;
-            if(per >= 0.5){
+        for (int i = 0; i < q; i++) {
+            cost += p.getPreco() * per;
+            if (per > 0) {
                 per -= 0.05;
             }
         }
+
+        if (cost < (p.getPreco() * q) / 2) {
+            cost = (p.getPreco() * q) / 2;
+        }
+
         return (int) cost;
     }
 
@@ -54,10 +60,10 @@ public class Mobiliario extends Produto implements Promocao, Serializable {
         this.dim = dim;
     }
 
-
     public int getId() {
         return super.getId();
     }
+
     public void setId(int id) {
         super.setId(id);
     }
@@ -65,6 +71,7 @@ public class Mobiliario extends Produto implements Promocao, Serializable {
     public int getStock() {
         return super.getStock();
     }
+
     public void setStock(int stock) {
         super.setStock(stock);
     }
@@ -72,6 +79,7 @@ public class Mobiliario extends Produto implements Promocao, Serializable {
     public String getNome() {
         return super.getNome();
     }
+
     public void setNome(String nome) {
         super.setNome(nome);
     }
@@ -79,6 +87,7 @@ public class Mobiliario extends Produto implements Promocao, Serializable {
     public void setPreco(int preco) {
         super.setPreco(preco);
     }
+
     public int getPreco() {
         return super.getPreco();
     }

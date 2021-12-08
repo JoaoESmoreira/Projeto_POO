@@ -6,8 +6,8 @@ public class Alimentar extends Produto implements Promocao, Serializable {
     public Alimentar() {
     }
 
-    public Alimentar(int id, int stock, int preco, String nome, int cal, int fat, int promo) {
-        super(id, stock, preco, nome, promo);
+    public Alimentar(String tipo, int id, int stock, int preco, String nome, int cal, int fat, int promo) {
+        super(tipo, id, stock, preco, nome, promo);
         this.cal = cal;
         this.fat = fat;
     }

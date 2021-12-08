@@ -34,13 +34,14 @@ public class Armazem {
             String t = dados[0];
 
             if (Objects.equals(t, "a")) {
-                armazem.add(new Alimentar(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Integer.parseInt(dados[3]), dados[6], Integer.parseInt(dados[4]), Integer.parseInt(dados[5]), Integer.parseInt(dados[7])));
+                armazem.add(new Alimentar(t, Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Integer.parseInt(dados[3]), dados[6], Integer.parseInt(dados[4]), Integer.parseInt(dados[5]), Integer.parseInt(dados[7])));
+
             } else if (t.equals("l")) {
-                armazem.add(new Limpeza(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Integer.parseInt(dados[3]), dados[5], Integer.parseInt(dados[4]), Integer.parseInt(dados[6])));
+                armazem.add(new Limpeza(t, Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Integer.parseInt(dados[3]), dados[5], Integer.parseInt(dados[4]), Integer.parseInt(dados[6])));
             } else if (t.equals("m")) {
                 String[] dim = dados[5].split("/");
                 Dimensao d = new Dimensao(Integer.parseInt(dim[0]), Integer.parseInt(dim[1]), Integer.parseInt(dim[2]));
-                armazem.add(new Mobiliario(Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Integer.parseInt(dados[3]), dados[6], Integer.parseInt(dados[4]), d, Integer.parseInt(dados[7])));
+                armazem.add(new Mobiliario(t, Integer.parseInt(dados[1]), Integer.parseInt(dados[2]), Integer.parseInt(dados[3]), dados[6], Integer.parseInt(dados[4]), d, Integer.parseInt(dados[7])));
             }
         }
     }

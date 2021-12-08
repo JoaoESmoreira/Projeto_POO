@@ -2,16 +2,25 @@ import java.io.Serializable;
 
 public class Produto implements Serializable {
     protected int id, stock, preco, promo;
-    protected String nome;
+    protected String nome, tipo;
 
     public Produto(){}
 
-    public Produto(int id, int stock, int preco, String nome, int promo) {
+    public Produto(String tipo, int id, int stock, int preco, String nome, int promo) {
+        this.tipo = tipo;
         this.id = id;
         this.stock = stock;
         this.preco = preco;
         this.nome = nome;
         this.promo = promo;
+    }
+
+    public String getTipo(){
+        return tipo;
+    }
+
+    public void setTipo(String tipo){
+        this.tipo = tipo;
     }
 
     public int getPromo() {

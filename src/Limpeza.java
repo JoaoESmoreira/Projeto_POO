@@ -6,8 +6,8 @@ public class Limpeza extends Produto implements Promocao, Serializable {
     public Limpeza() {
     }
 
-    public Limpeza(int id, int stock, int preco, String nome, int tox, int promo) {
-        super(id, stock, preco, nome, promo);
+    public Limpeza(String tipo, int id, int stock, int preco, String nome, int tox, int promo) {
+        super(tipo, id, stock, preco, nome, promo);
         this.tox = tox;
     }
 

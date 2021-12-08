@@ -39,6 +39,7 @@ public class Aplicacao {
     }
 
     public static Cliente login() {
+        System.out.println("---------------------- LOGIN ----------------------");
         Scanner sn = new Scanner(System.in);
         Cliente verificacao;
 
@@ -57,6 +58,7 @@ public class Aplicacao {
     }
 
     static void menu(int val, int del) {
+        System.out.println("---------------------- MENU ----------------------\n");
         System.out.println("Introduza: 0 - para fazer logout\n" +
                 "Introduza: 1 - para efetuar uma compra\n" +
                 "Introduza: 2 - para ver o seu histórico de compras\n\n" +
@@ -76,17 +78,20 @@ public class Aplicacao {
 
         int cart = 0;
         int delivery = 0;
+        boolean furnitureDelivery = false;
 
         int option;
         Scanner sn = new Scanner(System.in);
 
+        LerFicheiroObjetos historico = new LerFicheiroObjetos();
+
         do {
-            menu(historicoVenda.getCusto(), delivery);
+            menu(cart, delivery);
             option = sn.nextInt();
 
             switch (option) {
                 case 0: {
-                    System.out.println("Logout!\n          Volte sempre!!");
+                    System.out.println("Logout!\n\tVolte sempre!!");
                     break;
                 }
                 case 1 : {
@@ -103,41 +108,69 @@ public class Aplicacao {
                         do {
                             System.out.print("Qual a quantidade desejada? ");
                             quantidade = sn.nextInt();
-
                         } while (quantidade > produtoDesejado.getStock());
 
                         produtoDesejado.setStock(produtoDesejado.getStock() - quantidade);
 
                         for (int i = 0; i < quantidade; ++i) {
+                            if(produtoDesejado.getTipo().equals("m")){
+                                furnitureDelivery = true;
+                            }
                             historicoVenda.addProdutoNaListaCompras(produtoDesejado);
+                            cart += produtoDesejado.getPreco();
                         }
 
+                        System.out.println();
+
                     } else {
-                        System.out.println("Nao exite produtos com esse ID");
+                        System.out.println("Nao exite produtos com esse ID\n");
                     }
+
+                    if (cart > 40 && clienteOnline.getFrequente()){
+                        delivery = 0;
+                    }
+                    else if (cart <= 40 && clienteOnline.getFrequente()){
+                        delivery = 15;
+                    }
+                    else{
+                        delivery = 20;
+                    }
+                    if (furnitureDelivery){
+                        delivery += 10;
+                    }
+
                     // TODO escrever o hitorico num ficheiro de objetos
+                    historico.addVendas(historicoVenda);
+                    historico.escrita2();
+
                     break;
                 }
+
                 case 2 : {
                     // TODO listar historico de compras
+
                     LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
-                    //ficheiroHistorico.setTitulo(historico.getCliente().getNome());
-                    ficheiroHistorico.setTitulo("Francisco.obj");
-                    ficheiroHistorico.soQueroLerUm();
+                    ficheiroHistorico.setTitulo(clienteOnline.getNome() + ".obj");
+                    
+                    ficheiroHistorico.addVendas(historicoVenda);
+                    
+                    System.out.println("---------------------- Historico de Compras ----------------------");
                     ficheiroHistorico.printTexto();
 
                     break;
+
                 } default:
                     System.out.println("Operaçao invalida");
                     break;
             }
         } while (option != 0);
 
-        LerFicheiroObjetos escreve = new LerFicheiroObjetos();
-        escreve.setTitulo("Francisco.obj");
-        escreve.addVendas(historicoVenda);
-        escreve.escrita2();
-        escreve.printTexto();
+        System.out.println("---------------------- FATURA ----------------------\n");
+
+        LerFicheiroObjetos fatura = new LerFicheiroObjetos();
+        fatura.addVendas(historicoVenda);
+        fatura.printTexto();
+
     }
 }
 
