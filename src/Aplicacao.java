@@ -125,7 +125,7 @@ public class Aplicacao {
                 case 2: {
                     // DONE listar historico de compras
                     LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
-                    ficheiroHistorico.setTitulo(clienteOnline.getNome());
+                    ficheiroHistorico.setTitulo(clienteOnline.getNome() + ".obj");
                     ficheiroHistorico.soQueroLerUm();
                     ficheiroHistorico.printTexto();
 
