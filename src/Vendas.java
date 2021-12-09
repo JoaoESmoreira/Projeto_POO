@@ -16,7 +16,6 @@ public class Vendas implements Serializable {
         this.listaCompras = new ArrayList<>();
     }
 
-
     /**
      * Gets Purchase List.
      *
@@ -33,16 +32,6 @@ public class Vendas implements Serializable {
      */
     public void setListaCompras(ArrayList<Produto> listaCompras) {
         this.listaCompras = listaCompras;
-    }
-
-    /**
-     * Add Product on Purchase List.
-     *
-     * @param produto the product
-     */
-    public void addProdutoNaListaCompras (Produto produto) {
-        listaCompras.add(produto);
-        setCusto();
     }
 
     /**
@@ -79,6 +68,16 @@ public class Vendas implements Serializable {
      */
     public void setCustoConstrutor(int custo) {
         this.custo = custo;
+    }
+
+    /**
+     * Add Product on Purchase List.
+     *
+     * @param produto the product
+     */
+    public void addProdutoNaListaCompras (Produto produto) {
+        listaCompras.add(produto);
+        setCusto();
     }
 
     /**
@@ -139,7 +138,6 @@ public class Vendas implements Serializable {
                 }
             }
         }
-        // TODO falta verificar se os decontos estao bem
         this.custo = custo;
     }
 

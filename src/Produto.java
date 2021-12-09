@@ -141,6 +141,12 @@ abstract class Produto implements Serializable {
         return preco;
     }
 
+
+    /**
+     * Print Attributes (Abstract function)
+     *
+     * @return the string that contains all attributes of this product
+     */
     abstract String print ();
 
     @Override

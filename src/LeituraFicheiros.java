@@ -11,7 +11,9 @@ public class LeituraFicheiros {
     /**
      * Instantiates a new File Reading.
      */
-    public LeituraFicheiros () {}
+    public LeituraFicheiros () {
+        this.lines = new ArrayList<>();
+    }
 
     /**
      * Gets lines.
@@ -77,7 +79,6 @@ public class LeituraFicheiros {
 
         setLines(texto);
     }
-
 
     /**
      * Invoice

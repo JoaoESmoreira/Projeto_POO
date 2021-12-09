@@ -109,11 +109,16 @@ public class Alimentar extends Produto implements Serializable {
         return super.getPreco();
     }
 
+    /**
+     * Print Attributes
+     *
+     * @return the string that contains all attributes of this product
+     */
     public String print () {
-        return  nome + "\nID: " + id +
-                "\nPreco: " + preco + "\n" +
-                "Calorias: " + cal +
-                "\nGordura: " + fat + "\n";
+        return  nome + "\nID:                   " + id +
+                       "\nPreco  :              " + preco +
+                       "\nCalorias:             " + cal +
+                       "\nGordura:              " + fat + "\n";
     }
 
     @Override

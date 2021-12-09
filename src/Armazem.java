@@ -92,7 +92,6 @@ public class Armazem {
         return flag;
     }
 
-
     /**
      * Print storage.
      *

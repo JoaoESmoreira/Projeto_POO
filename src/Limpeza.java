@@ -27,18 +27,6 @@ public class Limpeza extends Produto implements Serializable {
         this.tox = tox;
     }
 
-    public int getPeso() {
-        return -1;
-    }
-
-    public int getPromo() {
-        return promo;
-    }
-
-    public void setPromo(int promo) {
-        this.promo = promo;
-    }
-
     /**
      * Gets toxicity.
      *
@@ -57,6 +45,17 @@ public class Limpeza extends Produto implements Serializable {
         this.tox = tox;
     }
 
+    public int getPeso() {
+        return -1;
+    }
+
+    public int getPromo() {
+        return promo;
+    }
+
+    public void setPromo(int promo) {
+        this.promo = promo;
+    }
 
     public int getId() {
         return super.getId();
@@ -90,10 +89,15 @@ public class Limpeza extends Produto implements Serializable {
         return super.getPreco();
     }
 
+    /**
+     * Print Attributes
+     *
+     * @return the string that contains all attributes of this product
+     */
     public String print () {
-        return nome + "\nID: " + id +
-                "\nPreco: " + preco + "\n" +
-                "Toxicidade: " + tox + "\n";
+        return nome + "\nID:                    " + id +
+                      "\nPreco:                 " + preco +
+                      "\nToxicidade:            " + tox + "\n";
     }
 
     @Override

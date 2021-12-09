@@ -29,14 +29,6 @@ public class Mobiliario extends Produto implements Serializable {
         this.dim = dim;
     }
 
-    public int getPromo() {
-        return promo;
-    }
-
-    public void setPromo(int promo) {
-        this.promo = promo;
-    }
-
     public int getPeso() {
         return peso;
     }
@@ -69,6 +61,14 @@ public class Mobiliario extends Produto implements Serializable {
     }
 
 
+    public int getPromo() {
+        return promo;
+    }
+
+    public void setPromo(int promo) {
+        this.promo = promo;
+    }
+
     public int getId() {
         return super.getId();
     }
@@ -97,11 +97,16 @@ public class Mobiliario extends Produto implements Serializable {
         return super.getPreco();
     }
 
+    /**
+     * Print Attributes
+     *
+     * @return the string that contains all attributes of this product
+     */
     public String print () {
-        return nome + "\nID: " + id +
-                "\nPreco: " + preco + "\n" +
-                "Peso: " + peso +
-                "\nDimensao: " + dim + "\n";
+        return nome + "\nID:                   " + id +
+                      "\nPreco:                " + preco +
+                      "\nPeso:                 " + peso +
+                      "\nDimensao:             " + dim + "\n";
     }
 
     @Override

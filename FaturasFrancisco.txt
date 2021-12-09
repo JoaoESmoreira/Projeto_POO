@@ -102,3 +102,75 @@ Peso: 10
 Dimensao: 70 X 90 X 30
 
 Total da compra: 300€
+---------------------- FATURA ----------------------
+Cereais
+ID: 117
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Total da compra: 20€
+---------------------- FATURA ----------------------
+Cereais
+ID:         117
+Preco  :    4
+Calorias:   150
+Gordura:    2
+
+Cereais
+ID:         117
+Preco  :    4
+Calorias:   150
+Gordura:    2
+
+Cereais
+ID:         117
+Preco  :    4
+Calorias:   150
+Gordura:    2
+
+Cereais
+ID:         117
+Preco  :    4
+Calorias:   150
+Gordura:    2
+
+Total da compra: 16€
+---------------------- FATURA ----------------------
+cadeira
+ID:              564
+Preco:           150
+Peso:            10
+Dimensao:        70 X 90 X 30
+
+Cereais
+ID:              117
+Preco  :         4
+Calorias:        150
+Gordura:         2
+
+Total da compra: 154€
