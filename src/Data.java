@@ -5,13 +5,13 @@ import java.io.Serializable;
  */
 public class Data implements Serializable {
     /**
-     * The Ano.
+     * The Year.
      */
     protected int ano, /**
-     * The Mes.
+     * The Month.
      */
     mes, /**
-     * The Dia.
+     * The Day.
      */
     dia;
 
@@ -24,9 +24,9 @@ public class Data implements Serializable {
     /**
      * Instantiates a new Data.
      *
-     * @param a the a
-     * @param m the m
-     * @param d the d
+     * @param a the year
+     * @param m the month
+     * @param d the day
      */
     public Data(int a, int m, int d) {
         ano = a;
@@ -35,54 +35,54 @@ public class Data implements Serializable {
     }
 
     /**
-     * Gets ano.
+     * Gets year.
      *
-     * @return the ano
+     * @return the year
      */
     public int getAno() {
         return ano;
     }
 
     /**
-     * Sets ano.
+     * Sets year.
      *
-     * @param ano the ano
+     * @param ano the year
      */
     public void setAno(int ano) {
         this.ano = ano;
     }
 
     /**
-     * Gets mes.
+     * Gets month.
      *
-     * @return the mes
+     * @return the month
      */
     public int getMes() {
         return mes;
     }
 
     /**
-     * Sets mes.
+     * Sets month.
      *
-     * @param mes the mes
+     * @param mes the month
      */
     public void setMes(int mes) {
         this.mes = mes;
     }
 
     /**
-     * Gets dia.
+     * Gets day.
      *
-     * @return the dia
+     * @return the day
      */
     public int getDia() {
         return dia;
     }
 
     /**
-     * Sets dia.
+     * Sets day.
      *
-     * @param dia the dia
+     * @param dia the day
      */
     public void setDia(int dia) {
         this.dia = dia;

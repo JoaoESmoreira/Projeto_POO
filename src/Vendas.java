@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * The type Vendas.
+ * The type Sell/Purchase.
  */
 public class Vendas implements Serializable {
     private ArrayList<Produto> listaCompras;
@@ -10,7 +10,7 @@ public class Vendas implements Serializable {
     private int                custo;
 
     /**
-     * Instantiates a new Vendas.
+     * Instantiates a new Purchase.
      */
     public Vendas () {
         this.listaCompras = new ArrayList<>();
@@ -18,27 +18,27 @@ public class Vendas implements Serializable {
 
 
     /**
-     * Gets lista compras.
+     * Gets Purchase List.
      *
-     * @return the lista compras
+     * @return the purchase list (an ArrayList of Products)
      */
     public ArrayList<Produto> getListaCompras() {
         return listaCompras;
     }
 
     /**
-     * Sets lista compras.
+     * Sets Purchase List.
      *
-     * @param listaCompras the lista compras
+     * @param listaCompras the purchase list (an ArrayList of Products)
      */
     public void setListaCompras(ArrayList<Produto> listaCompras) {
         this.listaCompras = listaCompras;
     }
 
     /**
-     * Add produto na lista compras.
+     * Add Product on Purchase List.
      *
-     * @param produto the produto
+     * @param produto the product
      */
     public void addProdutoNaListaCompras (Produto produto) {
         listaCompras.add(produto);
@@ -46,47 +46,48 @@ public class Vendas implements Serializable {
     }
 
     /**
-     * Gets cliente.
+     * Gets client.
      *
-     * @return the cliente
+     * @return the client
      */
     public Cliente getCliente() {
         return cliente;
     }
 
     /**
-     * Sets cliente.
+     * Sets client.
      *
-     * @param cliente the cliente
+     * @param cliente the client
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
     /**
-     * Gets custo.
+     * Gets price.
      *
-     * @return the custo
+     * @return the price
      */
     public int getCusto() {
         return custo;
     }
 
     /**
-     * Sets custo construtor.
+     * Sets Price Constructor.
      *
-     * @param custo the custo
+     * @param custo the price
      */
     public void setCustoConstrutor(int custo) {
         this.custo = custo;
     }
 
     /**
-     * Ja teve desconto int.
+     * Already has discount.
      *
-     * @param produto the produto
-     * @param pos     the pos
-     * @return the int
+     * @param produto the product
+     * @param pos     the position on arrayList
+     *
+     * @return the number of products already had discount until given position
      */
     public int jaTeveDesconto (Produto produto, int pos) {
         int flag = 0;
@@ -99,10 +100,10 @@ public class Vendas implements Serializable {
     }
 
     /**
-     * Quantos na lista int.
+     * How Many in List.
      *
-     * @param produto the produto
-     * @return the int
+     * @param produto the product
+     * @return the number of products already on list
      */
     public int quantosNaLista (Produto produto) {
         int count = 0;
@@ -115,7 +116,7 @@ public class Vendas implements Serializable {
     }
 
     /**
-     * Sets custo.
+     * Sets Final Price.
      */
     public void setCusto() {
         int custo = 0;
@@ -143,10 +144,10 @@ public class Vendas implements Serializable {
     }
 
     /**
-     * Sets portes envio.
+     * Sets shipping costs.
      *
-     * @param cliente the cliente
-     * @return the portes envio
+     * @param cliente the client
+     * @return the shipping costs
      */
     public int setPortesEnvio (Cliente cliente) {
         int delivery;
@@ -168,7 +169,7 @@ public class Vendas implements Serializable {
     }
 
     /**
-     * Print lista compras.
+     * Print shipping costs.
      */
     public void printListaCompras () {
         for (Produto produto : listaCompras)

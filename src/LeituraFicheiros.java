@@ -2,21 +2,21 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * The type Leitura ficheiros.
+ * The type File Reading.
  */
 public class LeituraFicheiros {
     private ArrayList<String> lines;
     private String            titulo;
 
     /**
-     * Instantiates a new Leitura ficheiros.
+     * Instantiates a new File Reading.
      */
     public LeituraFicheiros () {}
 
     /**
      * Gets lines.
      *
-     * @return the lines
+     * @return the lines in an ArrayList
      */
     public ArrayList<String> getLines() {
         return lines;
@@ -32,7 +32,27 @@ public class LeituraFicheiros {
     }
 
     /**
+     * Gets title.
+     *
+     * @return the title
+     */
+    public String getTitulo() {
+        return titulo;
+    }
+
+    /**
+     * Sets title.
+     *
+     * @param titulo the title
+     */
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    /**
      * Leitura.
+     *
+     * Read the file line by line, and add it to an ArrayList
      */
     public void leitura() {
         ArrayList<String> texto = new ArrayList<>();
@@ -59,25 +79,9 @@ public class LeituraFicheiros {
     }
 
     /**
-     * Gets titulo.
+     * Print text.
      *
-     * @return the titulo
-     */
-    public String getTitulo() {
-        return titulo;
-    }
-
-    /**
-     * Sets titulo.
-     *
-     * @param titulo the titulo
-     */
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    /**
-     * Print texto.
+     * Print the ArrayList that contain all lines of text read before
      */
     public void printTexto () {
         for (String linhas : lines) {

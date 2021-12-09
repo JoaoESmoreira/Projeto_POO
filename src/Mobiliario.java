@@ -8,20 +8,20 @@ public class Mobiliario extends Produto implements Serializable {
     private Dimensao dim;
 
     /**
-     * Instantiates a new Mobiliario.
+     * Instantiates new Furniture.
      */
     public Mobiliario(){}
 
     /**
-     * Instantiates a new Mobiliario.
+     * Instantiates new Furniture.
      *
      * @param id    the id
      * @param stock the stock
-     * @param preco the preco
-     * @param nome  the nome
-     * @param peso  the peso
-     * @param dim   the dim
-     * @param promo the promo
+     * @param preco the price
+     * @param nome  the name
+     * @param peso  the weight
+     * @param dim   the dimension
+     * @param promo the promotion
      */
     public Mobiliario(int id, int stock, int preco, String nome, int peso, Dimensao dim, int promo) {
         super(id, stock, preco, nome, promo);
@@ -42,27 +42,27 @@ public class Mobiliario extends Produto implements Serializable {
     }
 
     /**
-     * Sets peso.
+     * Sets weight.
      *
-     * @param peso the peso
+     * @param peso the weight
      */
     public void setPeso(int peso) {
         this.peso = peso;
     }
 
     /**
-     * Gets dim.
+     * Gets dimension.
      *
-     * @return the dim
+     * @return the dimension
      */
     public Dimensao getDim() {
         return dim;
     }
 
     /**
-     * Sets dim.
+     * Sets dimension.
      *
-     * @param dim the dim
+     * @param dim the dimension
      */
     public void setDim(Dimensao dim) {
         this.dim = dim;

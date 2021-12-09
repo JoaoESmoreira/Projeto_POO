@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 /**
- * The type Armazem.
+ * The type Storage.
  */
 public class Armazem {
     private ArrayList<Produto> armazem;
@@ -17,7 +17,7 @@ public class Armazem {
     /**
      * Instantiates a new Storage (ArrayList of Products).
      *
-     * @param armazem the armazem
+     * @param armazem the storage
      */
     public Armazem (ArrayList<Produto> armazem) {
         this.armazem = armazem;
@@ -26,7 +26,7 @@ public class Armazem {
     /**
      * Gets Storage (ArrayList of Products).
      *
-     * @return the armazem
+     * @return the storage
      */
     public ArrayList<Produto> getArmazem() {
         return armazem;
@@ -35,7 +35,7 @@ public class Armazem {
     /**
      * Sets Storage (ArrayList of Products).
      *
-     * @param armazem the armazem
+     * @param armazem the storage
      */
     public void setArmazem(ArrayList<Produto> armazem) {
         this.armazem = armazem;
@@ -76,12 +76,12 @@ public class Armazem {
     }
 
     /**
-     * Produto no armazem.
+     * Product in Storage.
      *
      * Given Id, if there is a respective object in Stock, the function will return this Product object.
      *
      * @param id the id
-     * @return the produto
+     * @return the product
      */
     public Produto produtoNoArmazem (int id) {
         Produto flag = null;
@@ -94,10 +94,9 @@ public class Armazem {
 
 
     /**
-     * Print armazem.
+     * Print storage.
      *
-     * Print all storage in stock
-     *
+     * Print all storage in stock.
      */
     public void printArmazem() {
         for (Produto p : armazem) {

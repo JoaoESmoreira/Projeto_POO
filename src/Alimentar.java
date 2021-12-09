@@ -1,19 +1,19 @@
 import java.io.Serializable;
 
 /**
- * The type Alimentar.
+ * The type Food Product.
  */
 public class Alimentar extends Produto implements Serializable {
     private int cal, fat;
 
     /**
-     * Instantiates a new Alimentar.
+     * Instantiates a new Food Product.
      */
     public Alimentar() {
     }
 
     /**
-     * Instantiates a new Alimentar.
+     * Instantiates a new Food Product.
      *
      * @param id    the id
      * @param stock the stock
@@ -21,7 +21,7 @@ public class Alimentar extends Produto implements Serializable {
      * @param nome  the name
      * @param cal   the calories
      * @param fat   the fat percentage
-     * @param promo the promotion
+     * @param promo the type of promotion
      */
     public Alimentar(int id, int stock, int preco, String nome, int cal, int fat, int promo) {
         super(id, stock, preco, nome, promo);

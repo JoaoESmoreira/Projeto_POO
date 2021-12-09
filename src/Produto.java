@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 /**
- * The type Produto.
+ * The type Product.
  */
 abstract class Produto implements Serializable {
     /**
@@ -23,18 +23,18 @@ abstract class Produto implements Serializable {
     protected String nome;
 
     /**
-     * Instantiates a new Produto.
+     * Instantiates a new Product.
      */
     public Produto(){}
 
     /**
-     * Instantiates a new Produto.
+     * Instantiates a new Product.
      *
      * @param id    the id
      * @param stock the stock
-     * @param preco the preco
-     * @param nome  the nome
-     * @param promo the promo
+     * @param preco the price
+     * @param nome  the name
+     * @param promo the promotion
      */
     public Produto(int id, int stock, int preco, String nome, int promo) {
         this.id = id;
@@ -45,25 +45,25 @@ abstract class Produto implements Serializable {
     }
 
     /**
-     * Gets peso.
+     * Gets weight.
      *
-     * @return the peso
+     * @return the weight
      */
     public abstract int getPeso();
 
     /**
-     * Gets promo.
+     * Gets promotion.
      *
-     * @return the promo
+     * @return the promotion
      */
     public int getPromo() {
         return promo;
     }
 
     /**
-     * Sets promo.
+     * Sets promotion.
      *
-     * @param promo the promo
+     * @param promo the promotion
      */
     public void setPromo(int promo) {
         this.promo = promo;
@@ -106,36 +106,36 @@ abstract class Produto implements Serializable {
     }
 
     /**
-     * Gets nome.
+     * Gets name.
      *
-     * @return the nome
+     * @return the name
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * Sets nome.
+     * Sets name.
      *
-     * @param nome the nome
+     * @param nome the name
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * Sets preco.
+     * Sets price.
      *
-     * @param preco the preco
+     * @param preco the price
      */
     public void setPreco (int preco) {
         this.preco = preco;
     }
 
     /**
-     * Gets preco.
+     * Gets price.
      *
-     * @return the preco
+     * @return the price
      */
     public int getPreco () {
         return preco;

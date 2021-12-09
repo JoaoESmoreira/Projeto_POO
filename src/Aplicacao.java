@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class Aplicacao {
     /**
      * The Clientes ArrayList.
-     * It's a global variable where we have Clients and its attirbutes.
      *
+     * It's a global variable where we have Clients and its attirbutes.
      */
     static ArrayList<Cliente> clientes = new ArrayList<>();
 
@@ -20,7 +20,6 @@ public class Aplicacao {
      *
      * We read a file with all Clients and its attirbutes.
      * In the end we add to global ArrayList.
-     *
      */
     static void leituraClientes() {
         LeituraFicheiros ficheiro = new LeituraFicheiros();
@@ -42,12 +41,12 @@ public class Aplicacao {
     }
 
     /**
-     * Verifica login cliente.
+     * Verify login client.
      *
      * Given email, if there is an email we log in and return the respective Client.
      *
      * @param email the email
-     * @return the cliente
+     * @return the client
      */
 // o que eu fiz, da a possibilidade de o utilizador errar o email
     public static Cliente verificaLogin(String email) {
@@ -66,12 +65,12 @@ public class Aplicacao {
     }
 
     /**
-     * Login cliente.
+     * Login client.
      *
      * While the Cliente not logged in we ask for an email.
-     * In the end, we will return the respective client
+     * In the end, we will return the respective client.
      *
-     * @return the cliente
+     * @return the client
      */
     public static Cliente login() {
         System.out.println("---------------------- LOGIN ----------------------");
@@ -99,8 +98,8 @@ public class Aplicacao {
      * It's a simple menu. We have: - option of all operations that Client can do
      *                              - the value of purchase and delivery
      *
-     * @param val the val
-     * @param del the del
+     * @param val the value
+     * @param del the delivery
      */
     static void menu(int val, int del) {
         System.out.println("---------------------- MENU ----------------------\n");
@@ -197,7 +196,7 @@ public class Aplicacao {
         LerFicheiroObjetos escreve = new LerFicheiroObjetos();
         escreve.setTitulo(clienteOnline.getNome() + ".obj");
         escreve.addVendas(historicoVenda);
-        escreve.escrita2();
+        escreve.escrita();
     }
 }
 

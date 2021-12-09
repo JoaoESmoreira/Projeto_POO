@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 /**
- * The type Cliente.
+ * The type Client.
  */
 public class Cliente extends LerFicheiroObjetos implements Serializable {
     private String nome, morada, email;
@@ -11,19 +11,19 @@ public class Cliente extends LerFicheiroObjetos implements Serializable {
     private Boolean frequente = false;
 
     /**
-     * Instantiates a new Cliente.
+     * Instantiates a new Client.
      */
     public Cliente () {}
 
     /**
-     * Instantiates a new Cliente.
+     * Instantiates a new Client.
      *
-     * @param nome           the nome
-     * @param morada         the morada
+     * @param nome           the name
+     * @param morada         the address
      * @param email          the email
-     * @param telefone       the telefone
-     * @param dataNascimento the data nascimento
-     * @param n              the n
+     * @param telefone       the phoneNumber
+     * @param dataNascimento the birthday
+     * @param n              the frequency
      */
     public Cliente(String nome, String morada, String email, int telefone, Data dataNascimento, int n) {
         this.dataNascimento = dataNascimento;
@@ -37,54 +37,54 @@ public class Cliente extends LerFicheiroObjetos implements Serializable {
     }
 
     /**
-     * Gets frequente.
+     * Gets frequency.
      *
-     * @return the frequente
+     * @return the frequency
      */
     public Boolean getFrequente() {
         return frequente;
     }
 
     /**
-     * Sets frequente.
+     * Sets frequency.
      *
-     * @param frequente the frequente
+     * @param frequente the frequency
      */
     public void setFrequente(Boolean frequente) {
         this.frequente = frequente;
     }
 
     /**
-     * Gets nome.
+     * Gets name.
      *
-     * @return the nome
+     * @return the name
      */
     public String getNome() {
         return nome;
     }
 
     /**
-     * Sets nome.
+     * Sets name.
      *
-     * @param nome the nome
+     * @param nome the name
      */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     /**
-     * Gets morada.
+     * Gets address.
      *
-     * @return the morada
+     * @return the address
      */
     public String getMorada() {
         return morada;
     }
 
     /**
-     * Sets morada.
+     * Sets address.
      *
-     * @param morada the morada
+     * @param morada the address
      */
     public void setMorada(String morada) {
         this.morada = morada;
@@ -109,36 +109,36 @@ public class Cliente extends LerFicheiroObjetos implements Serializable {
     }
 
     /**
-     * Gets telefone.
+     * Gets phoneNumber.
      *
-     * @return the telefone
+     * @return the phoneNumber
      */
     public int getTelefone() {
         return telefone;
     }
 
     /**
-     * Sets telefone.
+     * Sets phoneNumber.
      *
-     * @param telefone the telefone
+     * @param telefone the phoneNumber
      */
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
 
     /**
-     * Gets data nascimento.
+     * Gets birthday.
      *
-     * @return the data nascimento
+     * @return the birthday
      */
     public Data getDataNascimento() {
         return dataNascimento;
     }
 
     /**
-     * Sets data nascimento.
+     * Sets birthday.
      *
-     * @param dataNascimento the data nascimento
+     * @param dataNascimento the birthday
      */
     public void setDataNascimento(Data dataNascimento) {
         this.dataNascimento = dataNascimento;

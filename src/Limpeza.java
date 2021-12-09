@@ -1,26 +1,26 @@
 import java.io.Serializable;
 
 /**
- * The type Limpeza.
+ * The type Cleaning Product.
  */
 public class Limpeza extends Produto implements Serializable {
     private int tox;
 
     /**
-     * Instantiates a new Limpeza.
+     * Instantiates a new Cleaning Object.
      */
     public Limpeza() {
     }
 
     /**
-     * Instantiates a new Limpeza.
+     * Instantiates a new Cleaning Object.
      *
      * @param id    the id
      * @param stock the stock
-     * @param preco the preco
-     * @param nome  the nome
-     * @param tox   the tox
-     * @param promo the promo
+     * @param preco the price
+     * @param nome  the name
+     * @param tox   the toxicity
+     * @param promo the type of promotion
      */
     public Limpeza(int id, int stock, int preco, String nome, int tox, int promo) {
         super(id, stock, preco, nome, promo);
@@ -40,18 +40,18 @@ public class Limpeza extends Produto implements Serializable {
     }
 
     /**
-     * Gets tox.
+     * Gets toxicity.
      *
-     * @return the tox
+     * @return the toxicity.
      */
     public int getTox() {
         return tox;
     }
 
     /**
-     * Sets tox.
+     * Sets toxicity.
      *
-     * @param tox the tox
+     * @param tox the toxicity.
      */
     public void setTox(int tox) {
         this.tox = tox;

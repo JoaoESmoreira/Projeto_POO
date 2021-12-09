@@ -2,23 +2,23 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * The type Ler ficheiro objetos.
+ * The type Reads Objects Files.
  */
 public class LerFicheiroObjetos {
     private ArrayList<Vendas> venda;
     private String titulo;
 
     /**
-     * Instantiates a new Ler ficheiro objetos.
+     * Instantiates a Read Objects File.
      */
     public LerFicheiroObjetos() {
         venda = new ArrayList<>();
     }
 
     /**
-     * Instantiates a new Ler ficheiro objetos.
+     * Instantiates a new Read Objects File.
      *
-     * @param titulo the titulo
+     * @param titulo the title
      */
     public LerFicheiroObjetos(String titulo) {
         venda = new ArrayList<>();
@@ -26,45 +26,45 @@ public class LerFicheiroObjetos {
     }
 
     /**
-     * Gets venda.
+     * Gets Sell.
      *
-     * @return the venda
+     * @return the sell
      */
     public ArrayList<Vendas> getVenda() {
         return venda;
     }
 
     /**
-     * Sets vendas.
+     * Sets Sell.
      *
-     * @param vendas the vendas
+     * @param vendas the sell
      */
     public void setVendas(ArrayList<Vendas> vendas) {
         this.venda = vendas;
     }
 
     /**
-     * Gets titulo.
+     * Gets title.
      *
-     * @return the titulo
+     * @return the title
      */
     public String getTitulo() {
         return titulo;
     }
 
     /**
-     * Sets titulo.
+     * Sets title.
      *
-     * @param titulo the titulo
+     * @param titulo the title
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
     /**
-     * Add vendas.
+     * Add a purchase.
      *
-     * @param vendas the vendas
+     * @param vendas the purchase.
      */
     public void addVendas(Vendas vendas) {
         this.venda.add(vendas);
@@ -72,6 +72,8 @@ public class LerFicheiroObjetos {
 
     /**
      * So quero ler um.
+     *
+     * Read the file and add the Purchase Object to an ArrayList.
      */
     public void soQueroLerUm () {
         File f = new File(titulo);
@@ -94,9 +96,11 @@ public class LerFicheiroObjetos {
     }
 
     /**
-     * Escrita 2.
+     * Write
+     *
+     * Write all Purchase Objects in the ArrayList.
      */
-    public void escrita2 () {
+    public void escrita () {
 
         for (Vendas vendas : venda) {
 
@@ -116,7 +120,9 @@ public class LerFicheiroObjetos {
     }
 
     /**
-     * Print texto.
+     * Print text.
+     *
+     * Print an ArrayList that contains all lines of a text read before.
      */
     public void printTexto() {
         for (Vendas vendas : venda) {

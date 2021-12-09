@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 /**
- * The type Dimensao.
+ * The type Dimension.
  */
 public class Dimensao implements Serializable {
     private int altura;
@@ -9,16 +9,16 @@ public class Dimensao implements Serializable {
     private int profundidade;
 
     /**
-     * Instantiates a new Dimensao.
+     * Instantiates a new Dimension.
      */
     public Dimensao () {}
 
     /**
-     * Instantiates a new Dimensao.
+     * Instantiates a new Dimension.
      *
-     * @param altura       the altura
-     * @param largura      the largura
-     * @param profundidade the profundidade
+     * @param altura       the height
+     * @param largura      the width
+     * @param profundidade the profundity
      */
     public Dimensao (int altura, int largura, int profundidade) {
         this.altura = altura;
@@ -27,54 +27,54 @@ public class Dimensao implements Serializable {
     }
 
     /**
-     * Gets altura.
+     * Gets height.
      *
-     * @return the altura
+     * @return the height
      */
     public int getAltura() {
         return altura;
     }
 
     /**
-     * Sets altura.
+     * Sets height.
      *
-     * @param altura the altura
+     * @param altura the height
      */
     public void setAltura(int altura) {
         this.altura = altura;
     }
 
     /**
-     * Gets largura.
+     * Gets width.
      *
-     * @return the largura
+     * @return the width
      */
     public int getLargura() {
         return largura;
     }
 
     /**
-     * Sets largura.
+     * Sets width.
      *
-     * @param largura the largura
+     * @param largura the width
      */
     public void setLargura(int largura) {
         this.largura = largura;
     }
 
     /**
-     * Gets profundidade.
+     * Gets profundity.
      *
-     * @return the profundidade
+     * @return the profundity
      */
     public int getProfundidade() {
         return profundidade;
     }
 
     /**
-     * Sets profundidade.
+     * Sets profundity.
      *
-     * @param profundidade the profundidade
+     * @param profundidade the profundity
      */
     public void setProfundidade(int profundidade) {
         this.profundidade = profundidade;
