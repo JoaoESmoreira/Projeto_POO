@@ -1,11 +1,28 @@
 import java.io.Serializable;
 
+/**
+ * The type Alimentar.
+ */
 public class Alimentar extends Produto implements Serializable {
     private int cal, fat;
 
+    /**
+     * Instantiates a new Alimentar.
+     */
     public Alimentar() {
     }
 
+    /**
+     * Instantiates a new Alimentar.
+     *
+     * @param id    the id
+     * @param stock the stock
+     * @param preco the price
+     * @param nome  the name
+     * @param cal   the calories
+     * @param fat   the fat percentage
+     * @param promo the promotion
+     */
     public Alimentar(int id, int stock, int preco, String nome, int cal, int fat, int promo) {
         super(id, stock, preco, nome, promo);
         this.cal = cal;
@@ -16,18 +33,38 @@ public class Alimentar extends Produto implements Serializable {
         return -1;
     }
 
+    /**
+     * Gets calories.
+     *
+     * @return the calories
+     */
     public int getCal() {
         return cal;
     }
 
+    /**
+     * Sets calories.
+     *
+     * @param cal the calories
+     */
     public void setCal(int cal) {
         this.cal = cal;
     }
 
+    /**
+     * Gets fat percentage.
+     *
+     * @return the fat percentage
+     */
     public int getFat() {
         return fat;
     }
 
+    /**
+     * Sets fat percentage.
+     *
+     * @param fat the fat percentage
+     */
     public void setFat(int fat) {
         this.fat = fat;
     }

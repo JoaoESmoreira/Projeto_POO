@@ -1,32 +1,63 @@
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * The type Armazem.
+ */
 public class Armazem {
     private ArrayList<Produto> armazem;
 
+    /**
+     * Instantiates a new Storage (ArrayList of Products).
+     */
     public Armazem () {
         this.armazem = new ArrayList<>();
     }
 
+    /**
+     * Instantiates a new Storage (ArrayList of Products).
+     *
+     * @param armazem the armazem
+     */
     public Armazem (ArrayList<Produto> armazem) {
         this.armazem = armazem;
     }
 
+    /**
+     * Gets Storage (ArrayList of Products).
+     *
+     * @return the armazem
+     */
     public ArrayList<Produto> getArmazem() {
         return armazem;
     }
 
+    /**
+     * Sets Storage (ArrayList of Products).
+     *
+     * @param armazem the armazem
+     */
     public void setArmazem(ArrayList<Produto> armazem) {
         this.armazem = armazem;
     }
 
+    /**
+     * Add stock.
+     *
+     * The function read the inventory file and put the products on Storage (ArrayList of products).
+     *
+     * @param file the file
+     */
     public void addStock(String file) {
+        // leitura do ficheiro
+
         LeituraFicheiros ficheiro = new LeituraFicheiros();
         ficheiro.setTitulo(file);
         ficheiro.leitura();
 
         ArrayList<String> linhas = ficheiro.getLines();
 
+        // adicionar os produtos ao arraylist
         for (String s : linhas) {
             String[] dados = s.split(",");
 
@@ -44,6 +75,14 @@ public class Armazem {
         }
     }
 
+    /**
+     * Produto no armazem.
+     *
+     * Given Id, if there is a respective object in Stock, the function will return this Product object.
+     *
+     * @param id the id
+     * @return the produto
+     */
     public Produto produtoNoArmazem (int id) {
         Produto flag = null;
         for (Produto produto : armazem) {
@@ -54,6 +93,12 @@ public class Armazem {
     }
 
 
+    /**
+     * Print armazem.
+     *
+     * Print all storage in stock
+     *
+     */
     public void printArmazem() {
         for (Produto p : armazem) {
             System.out.println(p);

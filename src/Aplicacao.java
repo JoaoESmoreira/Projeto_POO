@@ -1,9 +1,27 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The type Aplication.
+ *
+ * This is the Main class where is the flow program.
+ * It's possible make a purchase and list all purschases did before.
+ */
 public class Aplicacao {
+    /**
+     * The Clientes ArrayList.
+     * It's a global variable where we have Clients and its attirbutes.
+     *
+     */
     static ArrayList<Cliente> clientes = new ArrayList<>();
 
+    /**
+     * Leitura clientes.
+     *
+     * We read a file with all Clients and its attirbutes.
+     * In the end we add to global ArrayList.
+     *
+     */
     static void leituraClientes() {
         LeituraFicheiros ficheiro = new LeituraFicheiros();
         ficheiro.setTitulo("Clientes.txt");
@@ -23,13 +41,22 @@ public class Aplicacao {
         }
     }
 
-    // o que eu fiz, da a possibilidade de o utilizador errar o email
+    /**
+     * Verifica login cliente.
+     *
+     * Given email, if there is an email we log in and return the respective Client.
+     *
+     * @param email the email
+     * @return the cliente
+     */
+// o que eu fiz, da a possibilidade de o utilizador errar o email
     public static Cliente verificaLogin(String email) {
         Cliente flag = null;
 
-        // percebo perfeitamente que o programa nao está otimizado, mas respeita as boas praticas: ALGO QUE A PROF GOSTA
+        // verificar se o email exite
         for (Cliente c : clientes) {
             if (c.getEmail().equals(email)) {
+                // colocar o cliente online
                 flag = c;
                 c.setLoggedIn(true);
                 System.out.println("Bem vind@, " + c.getNome() + "!");
@@ -38,6 +65,14 @@ public class Aplicacao {
         return flag;
     }
 
+    /**
+     * Login cliente.
+     *
+     * While the Cliente not logged in we ask for an email.
+     * In the end, we will return the respective client
+     *
+     * @return the cliente
+     */
     public static Cliente login() {
         System.out.println("---------------------- LOGIN ----------------------");
 
@@ -58,6 +93,15 @@ public class Aplicacao {
         return verificacao;
     }
 
+    /**
+     * Menu.
+     *
+     * It's a simple menu. We have: - option of all operations that Client can do
+     *                              - the value of purchase and delivery
+     *
+     * @param val the val
+     * @param del the del
+     */
     static void menu(int val, int del) {
         System.out.println("---------------------- MENU ----------------------\n");
         System.out.println("Introduza: 0 - para fazer logout\nIntroduza: 1 - para efetuar uma compra\n" +
@@ -66,11 +110,18 @@ public class Aplicacao {
                            "Custo da entrega: " + del + "€\n");
     }
 
-    // TODO ___________________________________MAIN_______________________________________________
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+// TODO ___________________________________MAIN_______________________________________________
     public static void main(String[] args) {
+        // DONE fazer leitura dos clientes
         leituraClientes();
         Cliente clienteOnline = login();
 
+        // DONE fazer a leitura do stock
         Armazem armazem = new Armazem();
         Vendas historicoVenda = new Vendas();
 
@@ -88,6 +139,7 @@ public class Aplicacao {
 
             switch (option) {
                 case 0: {
+                    // DONE log out
                     System.out.println("Logout!\n          Volte sempre!!");
                     break;
                 }
@@ -138,6 +190,7 @@ public class Aplicacao {
 
         } while (option != 0);
 
+        // custo final = delivery + custo dos produtos
         historicoVenda.setCustoConstrutor(historicoVenda.getCusto() + delivery);
 
         // DONE escrever a lista de compras no ficheiro

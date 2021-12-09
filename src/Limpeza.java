@@ -1,11 +1,27 @@
 import java.io.Serializable;
 
+/**
+ * The type Limpeza.
+ */
 public class Limpeza extends Produto implements Serializable {
     private int tox;
 
+    /**
+     * Instantiates a new Limpeza.
+     */
     public Limpeza() {
     }
 
+    /**
+     * Instantiates a new Limpeza.
+     *
+     * @param id    the id
+     * @param stock the stock
+     * @param preco the preco
+     * @param nome  the nome
+     * @param tox   the tox
+     * @param promo the promo
+     */
     public Limpeza(int id, int stock, int preco, String nome, int tox, int promo) {
         super(id, stock, preco, nome, promo);
         this.tox = tox;
@@ -23,10 +39,20 @@ public class Limpeza extends Produto implements Serializable {
         this.promo = promo;
     }
 
+    /**
+     * Gets tox.
+     *
+     * @return the tox
+     */
     public int getTox() {
         return tox;
     }
 
+    /**
+     * Sets tox.
+     *
+     * @param tox the tox
+     */
     public void setTox(int tox) {
         this.tox = tox;
     }

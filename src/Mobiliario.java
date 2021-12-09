@@ -1,11 +1,28 @@
 import java.io.Serializable;
 
+/**
+ * The type Mobiliario.
+ */
 public class Mobiliario extends Produto implements Serializable {
     private int peso;
     private Dimensao dim;
 
+    /**
+     * Instantiates a new Mobiliario.
+     */
     public Mobiliario(){}
 
+    /**
+     * Instantiates a new Mobiliario.
+     *
+     * @param id    the id
+     * @param stock the stock
+     * @param preco the preco
+     * @param nome  the nome
+     * @param peso  the peso
+     * @param dim   the dim
+     * @param promo the promo
+     */
     public Mobiliario(int id, int stock, int preco, String nome, int peso, Dimensao dim, int promo) {
         super(id, stock, preco, nome, promo);
         this.peso = peso;
@@ -24,14 +41,29 @@ public class Mobiliario extends Produto implements Serializable {
         return peso;
     }
 
+    /**
+     * Sets peso.
+     *
+     * @param peso the peso
+     */
     public void setPeso(int peso) {
         this.peso = peso;
     }
 
+    /**
+     * Gets dim.
+     *
+     * @return the dim
+     */
     public Dimensao getDim() {
         return dim;
     }
 
+    /**
+     * Sets dim.
+     *
+     * @param dim the dim
+     */
     public void setDim(Dimensao dim) {
         this.dim = dim;
     }
