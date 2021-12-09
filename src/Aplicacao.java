@@ -39,6 +39,8 @@ public class Aplicacao {
     }
 
     public static Cliente login() {
+        System.out.println("---------------------- LOGIN ----------------------");
+
         Scanner sn = new Scanner(System.in);
         Cliente verificacao;
 
@@ -57,11 +59,11 @@ public class Aplicacao {
     }
 
     static void menu(int val, int del) {
-        System.out.println("Introduza: 0 - para fazer logout\n" +
-                "Introduza: 1 - para efetuar uma compra\n" +
-                "Introduza: 2 - para ver o seu histórico de compras\n\n" +
-                "Valor do carrinho: " + val + "€\n" +
-                "Custo da entrega: " + del + "€\n");
+        System.out.println("---------------------- MENU ----------------------\n");
+        System.out.println("Introduza: 0 - para fazer logout\nIntroduza: 1 - para efetuar uma compra\n" +
+                           "Introduza: 2 - para ver o seu histórico de compras\n" +
+                           "\nValor do carrinho: " + val + "€\n" +
+                           "Custo da entrega: " + del + "€\n");
     }
 
     // TODO ___________________________________MAIN_______________________________________________

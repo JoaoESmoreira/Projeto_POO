@@ -41,8 +41,12 @@ public class LerFicheiroObjetos {
             FileInputStream fis = new FileInputStream(f);
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-            Vendas venda = (Vendas) ois.readObject();
-            addVendas(venda);
+            Vendas vendas;
+            while ((vendas = (Vendas) ois.readObject()) != null) {
+                // vendas = (Vendas) ois.readObject();
+                addVendas(vendas);
+
+            }
 
 
         } catch (IOException | ClassNotFoundException e) {
@@ -57,7 +61,7 @@ public class LerFicheiroObjetos {
             File f = new File(vendas.getCliente().getNome());
 
             try {
-                FileOutputStream fos = new FileOutputStream(f);
+                FileOutputStream fos = new FileOutputStream(f, true);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
 
                 oos.writeObject(vendas);

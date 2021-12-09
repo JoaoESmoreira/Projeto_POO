@@ -11,6 +11,10 @@ public class Limpeza extends Produto implements Serializable {
         this.tox = tox;
     }
 
+    public int getPeso() {
+        return -1;
+    }
+
     public int getPromo() {
         return promo;
     }

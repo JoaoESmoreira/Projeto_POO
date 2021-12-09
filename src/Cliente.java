@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Cliente implements Serializable {
+public class Cliente extends LerFicheiroObjetos implements Serializable {
     private String nome, morada, email;
     private int telefone;
     private Data dataNascimento;

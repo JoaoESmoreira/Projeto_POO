@@ -94,10 +94,10 @@ public class Vendas implements Serializable {
             delivery = 20;
         }
 
-        /*for (Produto produto : listaCompras) {
-            if (peso > 15)
+        for (Produto produto : listaCompras) {
+            if (produto.getPeso() > 15)
                 delivery += 10;
-        }*/
+        }
 
         return delivery;
     }

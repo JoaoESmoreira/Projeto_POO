@@ -12,6 +12,10 @@ public class Alimentar extends Produto implements Serializable {
         this.fat = fat;
     }
 
+    public int getPeso() {
+        return -1;
+    }
+
     public int getCal() {
         return cal;
     }

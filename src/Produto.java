@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Produto implements Serializable {
+abstract class Produto implements Serializable {
     protected int id, stock, preco, promo;
     protected String nome;
 
@@ -13,6 +13,8 @@ public class Produto implements Serializable {
         this.nome = nome;
         this.promo = promo;
     }
+
+    public abstract int getPeso();
 
     public int getPromo() {
         return promo;
