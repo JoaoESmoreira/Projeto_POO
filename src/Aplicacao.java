@@ -48,11 +48,10 @@ public class Aplicacao {
      * @param email the email
      * @return the client
      */
-// o que eu fiz, da a possibilidade de o utilizador errar o email
     public static Cliente verificaLogin(String email) {
         Cliente flag = null;
 
-        // verificar se o email exite
+        // verificar se o email existe
         for (Cliente c : clientes) {
             if (c.getEmail().equals(email)) {
                 // colocar o cliente online
