@@ -140,6 +140,19 @@ public class Aplicacao {
                 case 0: {
                     // DONE log out
                     System.out.println("Logout!\n          Volte sempre!!");
+
+                    // custo final = delivery + custo dos produtos
+                    historicoVenda.setCustoConstrutor(historicoVenda.getCusto() + delivery);
+
+                    // DONE escrever a lista de compras no ficheiro
+                    LerFicheiroObjetos escreve = new LerFicheiroObjetos();
+                    escreve.setTitulo(clienteOnline.getNome() + ".obj");
+                    escreve.addVendas(historicoVenda);
+                    escreve.escrita();
+
+                    LeituraFicheiros ficheiro = new LeituraFicheiros();
+                    ficheiro.fatura(historicoVenda, clienteOnline);
+
                     break;
                 }
                 case 1: {
@@ -175,10 +188,11 @@ public class Aplicacao {
                 }
                 case 2: {
                     // DONE listar historico de compras
+                    /*
                     LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
                     ficheiroHistorico.setTitulo(clienteOnline.getNome() + ".obj");
                     ficheiroHistorico.soQueroLerUm();
-                    ficheiroHistorico.printTexto();
+                    ficheiroHistorico.printTexto();*/
 
                     break;
                 }
@@ -186,17 +200,7 @@ public class Aplicacao {
                     System.out.println("Operaçao invalida");
                     break;
             }
-
         } while (option != 0);
-
-        // custo final = delivery + custo dos produtos
-        historicoVenda.setCustoConstrutor(historicoVenda.getCusto() + delivery);
-
-        // DONE escrever a lista de compras no ficheiro
-        LerFicheiroObjetos escreve = new LerFicheiroObjetos();
-        escreve.setTitulo(clienteOnline.getNome() + ".obj");
-        escreve.addVendas(historicoVenda);
-        escreve.escrita();
     }
 }
 

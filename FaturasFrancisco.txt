@@ -1,0 +1,90 @@
+---------------------- FATURA ----------------------
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Total da compra: 20€
+---------------------- FATURA ----------------------
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Cereais
+ID: 117
+Stock: 5
+Preco: 4
+Calorias: 150
+Gordura: 2
+
+Total da compra: 20€
+---------------------- FATURA ----------------------
+Fairy
+ID: 987
+Stock: 19
+Preco: 3
+Toxicidade: 3
+
+Total da compra: 3€
+---------------------- FATURA ----------------------
+Fairy
+ID: 987
+Stock: 19
+Preco: 3
+Toxicidade: 3
+
+Total da compra: 3€

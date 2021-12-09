@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * The type Reads Objects Files.
+ * The type Reads and Writes Objects Files.
  */
 public class LerFicheiroObjetos {
     private ArrayList<Vendas> venda;
