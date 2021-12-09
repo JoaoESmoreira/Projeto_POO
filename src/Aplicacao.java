@@ -112,6 +112,8 @@ public class Aplicacao {
                             historicoVenda.addProdutoNaListaCompras(produtoDesejado);
                         }
 
+                        delivery = historicoVenda.setPortesEnvio(clienteOnline);
+
                     } else {
                         System.out.println("Nao exite produtos com esse ID");
                     }
@@ -131,8 +133,6 @@ public class Aplicacao {
                     System.out.println("Operaçao invalida");
                     break;
             }
-
-            delivery = historicoVenda.setPortesEnvio(clienteOnline);
 
         } while (option != 0);
 
