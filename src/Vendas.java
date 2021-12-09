@@ -34,7 +34,7 @@ public class Vendas implements Serializable {
         return custo;
     }
 
-    public void setCusto(int custo) {
+    public void setCustoConstrutor(int custo) {
         this.custo = custo;
     }
 
@@ -81,6 +81,25 @@ public class Vendas implements Serializable {
         }
         // TODO falta verificar se os decontos estao bem
         this.custo = custo;
+    }
+
+    public int setPortesEnvio (Cliente cliente) {
+        int delivery;
+
+        if (custo > 40 && cliente.getFrequente()){
+            delivery = 0;
+        } else if (custo <= 40 && cliente.getFrequente()){
+            delivery = 15;
+        } else {
+            delivery = 20;
+        }
+
+        /*for (Produto produto : listaCompras) {
+            if (peso > 15)
+                delivery += 10;
+        }*/
+
+        return delivery;
     }
 
     public void printListaCompras () {

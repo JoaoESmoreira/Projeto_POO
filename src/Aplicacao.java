@@ -63,21 +63,21 @@ public class Aplicacao {
                 "Valor do carrinho: " + val + "€\n" +
                 "Custo da entrega: " + del + "€\n");
     }
+
     // TODO ___________________________________MAIN_______________________________________________
     public static void main(String[] args) {
         leituraClientes();
         Cliente clienteOnline = login();
 
-        Armazem armazem       = new Armazem();
+        Armazem armazem = new Armazem();
         Vendas historicoVenda = new Vendas();
 
         historicoVenda.setCliente(clienteOnline);
         armazem.addStock("inventario.txt");
 
-        int cart = 0;
+        int option;
         int delivery = 0;
 
-        int option;
         Scanner sn = new Scanner(System.in);
 
         do {
@@ -89,8 +89,8 @@ public class Aplicacao {
                     System.out.println("Logout!\n          Volte sempre!!");
                     break;
                 }
-                case 1 : {
-                    // TODO efetuar compras
+                case 1: {
+                    // DONE efetuar compras
                     armazem.printArmazem();
                     System.out.print("Insira o ID: ");
 
@@ -115,29 +115,34 @@ public class Aplicacao {
                     } else {
                         System.out.println("Nao exite produtos com esse ID");
                     }
-                    // TODO escrever o hitorico num ficheiro de objetos
+
                     break;
                 }
-                case 2 : {
-                    // TODO listar historico de compras
+                case 2: {
+                    // DONE listar historico de compras
                     LerFicheiroObjetos ficheiroHistorico = new LerFicheiroObjetos();
-                    //ficheiroHistorico.setTitulo(historico.getCliente().getNome());
-                    ficheiroHistorico.setTitulo("Francisco.obj");
+                    ficheiroHistorico.setTitulo(clienteOnline.getNome());
                     ficheiroHistorico.soQueroLerUm();
                     ficheiroHistorico.printTexto();
 
                     break;
-                } default:
+                }
+                default:
                     System.out.println("Operaçao invalida");
                     break;
             }
+
+            delivery = historicoVenda.setPortesEnvio(clienteOnline);
+
         } while (option != 0);
 
+        historicoVenda.setCustoConstrutor(historicoVenda.getCusto() + delivery);
+
+        // DONE escrever a lista de compras no ficheiro
         LerFicheiroObjetos escreve = new LerFicheiroObjetos();
-        escreve.setTitulo("Francisco.obj");
+        escreve.setTitulo(clienteOnline.getNome() + ".obj");
         escreve.addVendas(historicoVenda);
         escreve.escrita2();
-        escreve.printTexto();
     }
 }
 
