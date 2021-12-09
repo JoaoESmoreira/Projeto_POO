@@ -203,5 +203,3 @@ public class Aplicacao {
         } while (option != 0);
     }
 }
-
-// fmacedo@student.uc.pt
