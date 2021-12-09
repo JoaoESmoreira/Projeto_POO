@@ -97,6 +97,13 @@ public class Mobiliario extends Produto implements Serializable {
         return super.getPreco();
     }
 
+    public String print () {
+        return nome + "\nID: " + id +
+                "\nPreco: " + preco + "\n" +
+                "Peso: " + peso +
+                "\nDimensao: " + dim + "\n";
+    }
+
     @Override
     public String toString() {
         return super.toString() +

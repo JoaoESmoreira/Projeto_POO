@@ -97,7 +97,7 @@ public class LeituraFicheiros {
 
             for(Produto p: vendas.getListaCompras()) {
                 cart += p.getPreco();
-                bufferedWriter.write(String.valueOf(p));
+                bufferedWriter.write(p.print());
                 bufferedWriter.write('\n');
             }
 

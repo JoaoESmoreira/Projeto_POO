@@ -141,6 +141,8 @@ abstract class Produto implements Serializable {
         return preco;
     }
 
+    abstract String print ();
+
     @Override
     public String toString() {
         return  nome + "\nID: " + id +

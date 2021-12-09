@@ -109,6 +109,13 @@ public class Alimentar extends Produto implements Serializable {
         return super.getPreco();
     }
 
+    public String print () {
+        return  nome + "\nID: " + id +
+                "\nPreco: " + preco + "\n" +
+                "Calorias: " + cal +
+                "\nGordura: " + fat + "\n";
+    }
+
     @Override
     public String toString() {
         return  super.toString() +
