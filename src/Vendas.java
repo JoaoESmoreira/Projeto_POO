@@ -122,22 +122,28 @@ public class Vendas implements Serializable {
 
         for (int i = 0; i < listaCompras.size(); ++i) {
             if (listaCompras.get(i).getPromo() == 0) {
+                // sem desconto
                 custo += listaCompras.get(i).getPreco();
 
             } else if (listaCompras.get(i).getPromo() == 1) {
+                // desconto em percentagem
+
                 int descontoPercent = jaTeveDesconto(listaCompras.get(i), i);
+
                 if (descontoPercent <= 10) {
                     custo += listaCompras.get(i).getPreco() * (1 - (descontoPercent * 0.05));
                 } else {
                     custo += listaCompras.get(i).getPreco() * 0.5;
                 }
-            }else if (listaCompras.get(i).getPromo() == 2) {
+            } else if (listaCompras.get(i).getPromo() == 2) {
+                // desconto leve 4 pague 3
                 if (jaTeveDesconto(listaCompras.get(i), i) == 0) {
                     int totalPagar = quantosNaLista(listaCompras.get(i)) - (quantosNaLista(listaCompras.get(i)) / 4);
                     custo +=  listaCompras.get(i).getPreco() * totalPagar;
                 }
             }
         }
+        // define custo
         this.custo = custo;
     }
 
@@ -152,7 +158,7 @@ public class Vendas implements Serializable {
 
         if (custo > 40 && cliente.getFrequente()){
             delivery = 0;
-        } else if (custo <= 40 && cliente.getFrequente()){
+        } else if (custo <= 40 && cliente.getFrequente()) {
             delivery = 15;
         } else {
             delivery = 20;

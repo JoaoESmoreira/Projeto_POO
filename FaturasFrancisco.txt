@@ -174,3 +174,68 @@ Calorias:        150
 Gordura:         2
 
 Total da compra: 154€
+---------------------- FATURA ----------------------
+Cereais
+ID:                   117
+Preco  :              4
+Calorias:             150
+Gordura:              2
+
+Cereais
+ID:                   117
+Preco  :              4
+Calorias:             150
+Gordura:              2
+
+Cereais
+ID:                   117
+Preco  :              4
+Calorias:             150
+Gordura:              2
+
+Cereais
+ID:                   117
+Preco  :              4
+Calorias:             150
+Gordura:              2
+
+Cereais
+ID:                   117
+Preco  :              4
+Calorias:             150
+Gordura:              2
+
+Cereais
+ID:                   117
+Preco  :              4
+Calorias:             150
+Gordura:              2
+
+Fairy
+ID:                    987
+Preco:                 3
+Toxicidade:            3
+
+Fairy
+ID:                    987
+Preco:                 3
+Toxicidade:            3
+
+Fairy
+ID:                    987
+Preco:                 3
+Toxicidade:            3
+
+Fairy
+ID:                    987
+Preco:                 3
+Toxicidade:            3
+
+Fairy
+ID:                    987
+Preco:                 3
+Toxicidade:            3
+
+Total da compra: 39€
+---------------------- FATURA ----------------------
+Total da compra: 0€
